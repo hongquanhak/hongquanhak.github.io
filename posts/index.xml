@@ -1,0 +1,339 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on QUAN KUYO</title>
+        <link>https://hongquanhak.github.io/posts/</link>
+        <description>Recent content in Posts on QUAN KUYO</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Tue, 25 Aug 2020 00:00:00 +0000</lastBuildDate>
+        <atom:link href="https://hongquanhak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Lấy dữ liệu từ một API sử dụng React/Redux</title>
+            <link>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</link>
+            <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</guid>
+            <description>Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p><em>Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.</em></p>
+</blockquote>
+<h3 id="nguồn-bài-viết-fetching-data-from-an-api-using-reactreduxhttpsdevtomarkusclausfetching-data-from-an-api-using-reactredux-55ao"><em>Nguồn bài viết: <a href="https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao">Fetching data from an api using React/Redux</a></em></h3>
+<h2 id="bắt-đầu">Bắt đầu</h2>
+<p>Tôi quyết định chia sẻ một số kiến thức mà tôi đã thu được thông qua việc mắc sai lầm mà bạn cũng có thể mắc phải. Mọi thứ tôi viết ở đây tôi đều học được bằng cách đọc những bài viết trên blog, cố gắng hiểu những gì đã làm được và <code>“trial and error”</code> (đây là cách hoàn thành công việc bằng việc dùng phép thử thông qua những phương pháp khác nhau cho đến khi tìm được phương pháp đúng).</p>
+<p>Bây giờ, những điều đầu tiên là bạn cần làm là cài đặt <strong><code>React</code></strong> và <strong><code>Redux</code></strong>. Tôi giả sử là bạn đã biết cách cài đặt chúng. Sau đó, bạn sẽ thiết lập ứng dụng <strong><code>React</code></strong> của bạn, bạn cần cài đặt một công cụ được gọi là <strong><code>redux-thunk</code></strong> bằng cách sử dụng lệnh <code>“npm install redux-thunk”</code>.</p>
+<p>Với tất cả những gì đã được cài đặt, giờ đây chúng ta có thể xem xét những <strong>Component</strong> mà chúng ta sẽ cần để biến những điều kì diệu thành hiện thực!</p>
+<h2 id="thunk-là-cái-gì-vậy">Thunk là cái gì vậy?</h2>
+<p>Về cơ bản, <strong><code>thunk</code></strong> là một function được gọi bởi một function khác. Chờ đã… Cái gì? Vâng, đó là cách mà tôi đã phản ứng khi lần đầu tiên tôi nghe tới điều này. Hãy để tôi cho bạn xem một ví dụ:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">some_function</span>() {
+    <span style="color:#75715e">// do something
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">thunk</span>() {
+        <span style="color:#75715e">// do something thunky later
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div><p>Như vậy, <strong><code>some_function</code></strong> được gọi, nó làm một vài việc và sau đó trả về một hàm mới với các câu lệnh và có thể là các dữ liệu dùng cho sau này.</p>
+<h2 id="vậy-còn-redux-thì-sao"><strong>Vậy còn Redux thì sao?</strong></h2>
+<p>Tôi không muốn đào sâu về <strong><code>Redux</code></strong> (chính xác hơn là tôi không thể). Vì vậy, lời giải thích ngắn gọn chỉ là: Nó là nơi chứa đựng các <strong><code>state</code></strong> trong ứng dụng <strong><code>javascript</code></strong>. Nó giữ tất cả những dữ liệu bạn cần trong ứng dụng của bạn ở một nơi. Mọi <strong><code>component</code></strong> trong ứng dụng của bạn đều có không gian ở trong vùng chứa <strong><code>state</code></strong> nơi mà bạn tìm kiếm dữ liệu. Khi dữ liệu được thay đổi thì <strong><code>component</code></strong> cũng sẽ thay đổi theo.</p>
+<h2 id="actions"><strong>Actions</strong></h2>
+<p>Ý tưởng là bạn gửi các <strong><code>action</code></strong> lên <strong><code>redux</code></strong> và dựa trên những <strong><code>action</code></strong> đó, <strong><code>state</code></strong> được thay đổi.
+Điều buồn cười là: Một <strong><code>action</code></strong> không được làm bất cứ thứ gì, nghe thì có vẻ như có những thứ đang diễn ra, nhưng thực ra là không có. Một <strong><code>action</code></strong> chỉ đơn giản là một đối tượng với một <strong><code>type key</code></strong>. Như thế này:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// this is an action
+</span><span style="color:#75715e"></span>{
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SOME_ACTION&#34;</span>,
+    <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> {}
+}
+</code></pre></div><p>Hầu hết thời gian bạn không muốn viết đi viết lại cùng một đối tượng, vì thế có một khái niệm được gọi là <strong><code>Action Creators</code></strong>.</p>
+<h2 id="action-creators">Action Creators.</h2>
+<p><strong><code>Action Creators</code></strong> thực hiện chính xác những gì mà chúng nghe, chúng tạo ra những đối tượng action cho bạn.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SOME_ACTION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SOME_ACTION&#34;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">create_action</span>(<span style="color:#a6e22e">data</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">SOME_ACTION</span>,
+        <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>
+    }
+}
+</code></pre></div><p>Vì vậy với những <strong><code>action creators</code></strong> đó, bạn có thể dễ dàng sử dụng <code>SOME_ACTION</code> ngay bây giờ bằng cách gọi <code>create_action(data)</code>. Những action creators đó có thể được gửi lên <strong><code>redux</code></strong> bằng cách sử dụng <code>dispatch(create_action(data))</code>.</p>
+<h2 id="reducers">Reducers</h2>
+<p>Sau khi một <strong><code>action</code></strong> được gửi lên, nó sẽ được truyền vào một cái gọi là <strong><code>Reducer</code></strong>. Một <strong><code>reducer</code></strong> là một hàm chức năng được đưa ra một <strong><code>state</code></strong> và một <strong><code>action</code></strong>. Tùy vào <strong><code>action</code></strong> mà nó sẽ biến đổi <strong><code>state</code></strong> và sau đó sẽ trả về một <strong><code>state</code></strong> mới.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">someReducer</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">action</span>) {
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">SOME_ACTION</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>
+            }
+        <span style="color:#66d9ef">break</span>;
+
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+            <span style="color:#75715e">// the dispatched action is not in this reducer, return the state unchanged
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+    }
+}
+</code></pre></div><p>Những ứng dụng phức tạp hơn rất có thể có 2 <strong><code>reducer</code></strong>, mỗi một <strong><code>reducer</code></strong> sẽ chịu trách nhiệm cho một phần của <strong><code>state</code></strong>. Vì vậy, điều quan trọng là không bao giờ được phép quên trường hợp mặc định (là trường hợp mà <strong><code>reducer</code></strong> trả về <strong><code>state</code></strong> chưa được thay đổi).
+Điều quan trọng cần lưu ý rằng các <strong><code>reducer</code></strong> là các hàm thuần khiết. Chúng không bao giờ gọi một cái gì đó giống như <strong><code>API</code></strong> hoặc gửi một <strong><code>action</code></strong> khác tới <strong><code>redux</code></strong>.</p>
+<h2 id="bạn-đã-nói-về-thunks-chưa">Bạn đã nói về thunks chưa?</h2>
+<p>Bạn đã nhớ điều đó. Okay, nói về <strong><code>thunks</code></strong> một lần nữa. Tôi chỉ đề cập đến <strong><code>reducers</code></strong> là thuần khiết. Nhưng thường thì chúng ta muốn có một loại lệnh gọi <strong><code>API</code></strong> hoặc gửi một cái gì đó tùy thuộc vào dữ liệu hoặc bất cứ cái gì… Nhưng chúng ta không thể… <strong><code>reducers</code></strong> là thuần khiết… <strong><code>Redux-Thunk</code></strong> sẽ làm điều đó.</p>
+<p><strong><code>Redux-Thunk</code></strong> khá dễ hiểu. Nó được coi như là một đoạn mã trung gian cho <strong><code>redux store</code></strong>. Nó xem xét mọi <strong><code>action</code></strong> đơn lẻ được gửi đi và nếu nó là một hàm, nó sẽ gọi cái hàm đó. Nhưng điều này mở ra một thế giới hoàn toàn mới của những “<strong><code>action</code></strong>” lạ mắt được gửi đến <strong><code>redux</code></strong>.
+Bạn có thắc mắc, làm thế nào tôi nhận được điều kì diệu nhỏ này vào <strong><code>store</code></strong> của tôi?</p>
+<h2 id="hãy-lấy-một-số-products">Hãy lấy một số products</h2>
+<p>Chúng ta muốn nạp một số <strong><code>product</code></strong> từ <strong><code>API</code></strong> của chúng ta. Để làm điều này, đầu tiên chúng ta thiết lập <strong><code>component</code></strong> trong một số loại <strong><code>state</code></strong> đang chờ xử lý, chúng ta hiển thị một cái gọi là <strong><code>loading spinner</code></strong> hay một cái gì đó tương tự. Sau đó, chúng ta tải dữ liệu và quyết định xem chúng ta có thể hiển thị danh sách <strong><code>product</code></strong> được hay không hoặc hiển thị một số loại thông báo lỗi.
+Chúng ta bắt đầu thiết lập <strong><code>action creators.</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// action.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_PENDING&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_SUCCESS&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_ERROR&#39;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsPending</span>() {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span>
+    }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsSuccess</span>(<span style="color:#a6e22e">products</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span>
+        <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">products</span>
+    }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsError</span>(<span style="color:#a6e22e">error</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span>
+        <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">error</span>
+    }
+}
+</code></pre></div><p>Bây giờ chúng ta đã có <strong><code>action creators</code></strong>, hãy thiết lập <strong><code>reducer</code></strong> cho toàn bộ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// reducer.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span>, <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span>, <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./actions&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialState</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [],
+    <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">productsReducer</span>(<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialState</span>, <span style="color:#a6e22e">action</span>) {
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span><span style="color:#f92672">:</span> 
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+            }
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>
+            }
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">error</span>
+            }
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> 
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+    }
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProducts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">products</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProductsPending</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">pending</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProductsError</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">error</span>;
+</code></pre></div><p>Okay, bây giờ chúng ta có một phần lớn công việc được thực hiện.
+Những điều cần lưu ý trong đoạn code trên là ba hàm ở cuối <strong><code>reducer</code></strong>. Chúng được gọi là các <strong><code>selector</code></strong>. Các <strong><code>Selector</code></strong> được sử dụng để lấy các phần được định nghĩa của <strong><code>state</code></strong>.</p>
+<p>Trong những ứng dụng nhỏ, chúng thực sự cần thiết. Nhưng nếu bạn mở rộng quy mô ứng dụng của mình và nó càng ngày càng phức tạp hơn, nó sẽ thực sự lộn xộn nếu bạn thay đổi một cái gì đó trong <strong><code>state</code></strong> của bạn. 
+Tôi chắc chắn sẽ làm một bài blog về các <strong><code>selector</code></strong>, bởi vì tôi nghĩ rằng chúng thực sự quan trọng để thiết lập một ứng dụng <strong><code>react/redux</code></strong> có thể mở rộng.</p>
+<p>Chúng ta đang ở đâu… À vâng, một phần lớn công việc đã hoàn thành. Điều duy nhất còn lại cho chúng ta để làm về phía <strong><code>redux</code></strong> là viết một trong những <strong><code>action</code></strong> mới.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// fetchProducts.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">fetchProductsPending</span>, <span style="color:#a6e22e">fetchProductsSuccess</span>, <span style="color:#a6e22e">fetchProductsError</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;actions&#39;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProducts</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dispatch</span> =&gt; {
+        <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsPending</span>());
+        <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://exampleapi.com/products&#39;</span>)
+        .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>())
+        .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; {
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">error</span>) {
+                <span style="color:#66d9ef">throw</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">error</span>);
+            }
+            <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsSuccess</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">products</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">products</span>;
+        })
+        .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+            <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsError</span>(<span style="color:#a6e22e">error</span>));
+        })
+    }
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">fetchProducts</span>;
+</code></pre></div><p><strong><code>Action</code></strong> trên khá là đơn giản. Đầu tiên chúng ta gửi <strong><code>pending action</code></strong>. Sau đó lấy dữ liệu từ <strong><code>API</code></strong> của chúng ta. Tiếp đo giải mã <strong><code>json</code></strong> và truyền vào một <strong><code>object</code></strong>. Cuối cùng kiểm tra lỗi. Nếu có lỗi xảy ra, chúng ta sẽ <strong><code>throw</code></strong> nó và gọi hàm <strong><code>error</code></strong>. Nếu mọi thứ hoạt động bình thường, chúng ta gọi <strong><code>success action (fetchProductsSuccess)</code></strong>. <strong><code>Reducer</code></strong> sẽ xử lý phần còn lại.
+Đây là tất cả về lấy dữ liệu từ <strong><code>server</code></strong>… Không, đùa thôi, không phải vậy đâu. Nhưng đây là cách kết thúc về việc lấy dữ liệu từ <strong><code>api</code></strong> mà hầu hết các bài viết đã làm, đúng không. Nhưng…</p>
+<h2 id="những-gì-về-ứng-dụng-của-chúng-ta">Những gì về ứng dụng của chúng ta?</h2>
+<p>Oh, bạn muốn các sản phẩm từ <strong><code>store</code></strong> của bạn thực sự hiển thị trong ứng dụng <strong><code>react</code></strong> của bạn? Okay, hãy làm điều đó.
+Tôi giả dụ như bạn biết cách để kết nối ứng dụng <strong><code>react</code></strong> của bạn tới <strong><code>redux store</code></strong> bằng <strong><code>provider</code></strong>. Có rất nhiều bài viết về chủ đề này ở ngoài kia. Sau khi bạn làm điều đó, bạn sẽ cần một vài <strong><code>component</code></strong>.</p>
+<p>Cho tôi mọi thứ bắt đầu về một <strong><code>view</code></strong>. Đối với tôi, một <strong><code>view</code></strong> là một <strong><code>component</code></strong> bao bọc mọi thứ mà một <strong><code>user</code></strong> nhận được trong một <strong><code>component</code></strong> cha. <strong><code>Component</code></strong> cha này hầu hết đều có kết nối tới <strong><code>redux store</code></strong> và chia sẻ dữ liệu với <strong><code>component</code></strong> mà nó gói gọn.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">bindActionCreators</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux&#39;</span>;
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fetchProductsAction</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fetchProducts&#39;</span>;
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">getProductsError</span>, <span style="color:#a6e22e">getProducts</span>, <span style="color:#a6e22e">getProductsPending</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;reducer&#39;</span>;
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">LoadingSpinner</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./SomeLoadingSpinner&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProductList</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ProductList&#39;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductView</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
+    }
+
+    <span style="color:#a6e22e">componentWillMount</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">fetchProducts</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+        <span style="color:#a6e22e">fetchProducts</span>();
+    }
+
+    <span style="color:#a6e22e">shouldComponentRender</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">pending</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+        <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pending</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+        <span style="color:#75715e">// more tests
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+
+    <span style="color:#a6e22e">render</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">products</span>, <span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">pending</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span>()) <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">LoadingSpinner</span> <span style="color:#f92672">/&gt;</span>
+
+        <span style="color:#66d9ef">return</span> (
+            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;product-list-wrapper&#39;</span><span style="color:#f92672">&gt;</span>
+                {<span style="color:#a6e22e">error</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;product-list-error&#39;</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">error</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;}</span>
+                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ProductList</span> <span style="color:#a6e22e">products</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">products</span>} <span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+        )
+    }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapStateToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; ({
+    <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProductsError</span>(<span style="color:#a6e22e">state</span>),
+    <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProducts</span>(<span style="color:#a6e22e">state</span>),
+    <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProductsPending</span>(<span style="color:#a6e22e">state</span>)
+})
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapDispatchToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dispatch</span> =&gt; <span style="color:#a6e22e">bindActionCreators</span>({
+    <span style="color:#a6e22e">fetchProducts</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fetchProductsAction</span>
+}, <span style="color:#a6e22e">dispatch</span>)
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">connect</span>(
+    <span style="color:#a6e22e">mapStateToProps</span>,
+    <span style="color:#a6e22e">mapDispatchToProps</span>
+)(<span style="color:#a6e22e">ProductView</span> );
+</code></pre></div><p>Vì vậy, rất nhiều thứ đang diễn ra ở đây. Chúng ta viết một <strong><code>component React</code></strong> tiêu chuẩn. Sau đó, chúng ta sử dụng <strong><code>connect</code></strong> để kết nối nó tới <strong><code>redux store</code></strong>. <strong><code>Connect</code></strong> có hai tham số: Một hàm <strong><code>mapStateToProps</code></strong> để ánh xạ các phần của <strong><code>state</code></strong> vào <strong><code>props</code></strong> của bạn và một hàm <strong><code>mapDispatchToProps</code></strong> để ánh xạ các hàm vào <strong><code>props</code></strong> của bạn, khi được gọi sẽ được gửi tới <strong><code>redux</code></strong>.</p>
+<p>Cuối cùng, chúng ta đặt những thứ đó lại với nhau và nhìn xem, chúng ta có một kết nối tới <strong><code>store</code></strong>.
+Ở trong hàm <strong><code>mapStateToProps</code></strong>, chúng ta sử dụng các <strong><code>selector</code></strong> mà chúng ta đã viết trước đó.
+Tôi muốn thêm chức năng gọi là <strong><code>shouldComponentRender</code></strong> vào <strong><code>component view</code></strong> và hầu hết các <strong><code>component</code></strong>. Tôi đặt tên như vậy bởi vì nó gần giống với tên của phương thức <strong><code>lifecycle</code></strong> (<strong><code>shouldComponentUpdate</code></strong>) của <strong><code>React</code></strong>. Nó kiểm tra xem <strong><code>component</code></strong> có nên <strong><code>render</code></strong> hay không. Nếu không, nó sẽ <strong><code>render</code></strong> ra <strong><code>LoadingSpinner component</code></strong>.</p>
+<p>Tôi thấy nó rất có lợi khi làm việc như thế này, bởi vì các <strong><code>component</code></strong> luôn luôn được khởi tạo lại và tất cả các <strong><code>component</code></strong> con được gắn lại sau khi <strong><code>pending flag</code></strong>, nó điều khiển hàm <strong><code>render</code></strong> trong trường hợp này. Do đó, bạn có thể thêm <strong><code>redux state</code></strong> vào <strong><code>state</code></strong> của <strong><code>component</code></strong> trong hàm khởi tạo (<strong><code>constructor</code></strong>). (Tôi không muốn nói về những gì truyền vào <strong><code>redux</code></strong> và những gì truyền vào <strong><code>component state</code></strong>, đây là chủ đề cho một bài viết khác).</p>
+<p>Trong hầu hết các dự án của tôi, tôi thấy đây là một trong những vấn đề khó chịu nhất. Hãy nghĩ về một <strong><code>component</code></strong> mà <strong><code>render</code></strong> ra một sản phẩm. Nó được khởi tạo bởi dữ liệu và sau đó một số thành phần con như <strong><code>price calculator</code></strong>, có <strong><code>component state</code></strong>, được khởi tạo trong <strong><code>constructor</code></strong> của nó.  Khi dữ liệu mới xuất hiện, bạn cần kiểm tra xem <strong><code>calculator</code></strong> có cần phải xác định lại hay không.  Với hàm <strong><code>ShouldComponentRender</code></strong>, thật dễ dàng để làm điều đó. Mỗi khi <strong><code>pending flag</code></strong> được bật (có thể do một sản phẩm mới được chọn), mọi thứ sẽ được khởi động lại và rất tốt để sử dụng.
+Tất nhiên có một vài lý do tại sao bạn lại có các <strong><code>component</code></strong> trong phần <strong><code>view</code></strong> của bạn mà không được <strong><code>render</code></strong> lại. Nếu có trường hợp như vậy, hãy loại bỏ hàm <strong><code>shouldComponentRender</code></strong> từ phần <strong><code>view</code></strong> và làm việc với nó trong các component con.</p>
+<p>Bạn có thể sử dụng một vài hiệu ứng <strong><code>fadeout/-in</code></strong> để cải thiện trải nghiệm người dùng.
+Vâng, và đó là nó.</p>
+<p>Cảm ơn đã đọc bài blog đầu tiên của tôi. Tôi hi vọng bạn sẽ thích nó, tôi hi vọng bạn đã học được một vài thứ và nếu bạn có một vài gợi ý cho tôi để cải thiện kỹ năng <strong><code>react/redux</code></strong> của tôi hoặc chỉ muốn nói “chào”, hãy để lại lời bình cho tôi. Tôi thực sự thích điều đó.</p>
+<p>&ndash;/&ndash;</p>
+<p>Yayyy, mình tạm kết bài dịch tại đây, có thể còn nhiều thiếu sót và lủng củng trong cách dịch bài, hãy góp ý với mình qua facebook or mail nhé. Cảm ơn mọi người đã đọc bài.</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
+            <link>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</link>
+            <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</guid>
+            <description>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.</description>
+            <content type="html"><![CDATA[<blockquote>
+<p><em>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình. Tại sao chỉ từ A đến X, vì mình muốn để Z cho bạn tự trải nghiệm</em></p>
+</blockquote>
+<h2 id="tại-sao-chọn-hugo">Tại sao chọn Hugo?</h2>
+<p>Hugo là một nền tảng giúp bạn xây dựng một trang web tĩnh tích hợp sẵn với github được viết bằng ngôn ngữ <code>Golang</code> (con ruột của Google) và sử dụng <code>markdown</code> (file .md) để viết bài. Link dành cho bạn nào chưa biết về <code>markdown</code> <a href="https://quantrimang.com/cu-phap-markdown-can-ban-163963">tại đây</a>. Vậy tại sao mình lại sử dụng Hugo để tạo blog?</p>
+<p> <strong>Ưu điểm</strong>:</p>
+<ul>
+<li>Tốc độ build trang web nhanh <!-- raw HTML omitted --></li>
+<li>Không có cơ sở dữ liệu, plugin không yêu cầu bất cứ quyền nào, không lo ngại về bảo mật.</li>
+<li>Không có quá nhiều thứ phải tìm hiểu để bắt đầu.</li>
+</ul>
+<p> <strong>Nhược điểm</strong>:</p>
+<ul>
+<li>Chắc là bạn phải biết chút ít về lập trình thì sẽ dễ dàng hơn.</li>
+</ul>
+<p>Nào, bây giờ vào vấn đề chính, cùng tạo ra một trang web cho chính mình để khoe với bạn bè nào.</p>
+<h2 id="1cài-đặt-hugo-trên-window">1.	Cài đặt Hugo trên Window</h2>
+<p>Vì mình đang dùng Window nên mình sẽ hướng dẫn cài đặt ở trên Window thôi nhé.</p>
+<p>Link tải: <a href="https://github.com/gohugoio/hugo/releases">Hugo -&gt; chọn phiên bản Windows-64bit</a></p>
+<p>Tải về -&gt; giải nén vào thư mục bất kỳ.</p>
+<p>Vào Control Panel -&gt; System and Security -&gt; System -&gt; Advanced system settings -&gt; Tab “Advanced” và cài đặt như hình.</p>
+<p><img src="/images/24-08/01.png" alt="01"></p>
+<p>Mở <code>cmd</code> và gõ lệnh <code>hugo version</code>. Nếu hiển thị dòng “Hugo Static Site Generator…” thì có nghĩa là bạn đã cài Hugo thành công. 
+Okeee, vậy là đã xong bước đầu tiên trong hành trình tạo blog cá nhân, tiếp theo chúng ta sẽ …..</p>
+<h2 id="2tạo-thư-mục-mà-bạn-lưu-source-code-dưới-local">2.	Tạo thư mục mà bạn lưu source code dưới local.</h2>
+<p>Chọn một thư mục bất kì và gọi <code>cmd</code>. Ở đây mình sẽ tạo thư mục <code>QuanBlog</code> ở ổ đĩa F bằng cách vào ổ F, gọi cmd và sử dụng lệnh <code>hugo new site QuanBlog</code>. Tận hưởng thành quả…tadaaa.</p>
+<p><img src="/images/24-08/031.png" alt="031"></p>
+<h2 id="3chọn-theme-cho-blog-của-bạn">3.	Chọn theme cho blog của bạn.</h2>
+<p>Hugo cung cấp một kho theme cho bạn tha hồ lựa chọn ở <a href="https://themes.gohugo.io/.">https://themes.gohugo.io/.</a></p>
+<p>Ở bài viết này, mình sẽ sử dụng theme <strong><code>Hello Friend NG</code></strong> để làm theme chính cho blog. Yia, tải về và cấu hình thoai.</p>
+<ul>
+<li>Chọn theme và clone về thư mục blog hoặc tải file zip về sau đó giải nén và copy vào thư mục <code>themes</code> của bạn.</li>
+</ul>
+<p>Mở <code>cmd</code> và clone: <code>git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng</code></p>
+<p>Sau đó bạn vào thư mục <code>exampleSite</code> của theme mà bạn vừa tải về, copy và ghì đè toàn bộ những gì có trong đó ra ngoài thư mục chính của bạn (Bao gồm thư mục content, resources và file config.toml).</p>
+<p>Mở <code>cmd</code> lên và gõ lệnh <code>hugo server</code>, vào trình duyệt và gõ <code>localhost:1313</code>. Tadaaa…Các bạn sẽ được kết quả như này.</p>
+<p><img src="/images/24-08/02.png" alt="02"></p>
+<h2 id="4thử-viết-một-bài-chào-sân-chơi-mới-nào">4.	Thử viết một bài chào sân chơi mới nào.</h2>
+<p>Vào editor yêu thích của bạn để gõ vài dòng code nhé. Mình thì mình sử dụng <code>Visual Studio Code</code> để thực hiện nhiệm vụ này :D</p>
+<p>Các bạn sẽ thấy trong thư mục <code>content</code> có mục <code>posts</code> và các file như thế này. Xóa những bài viết mặc định của theme này và sẽ tạo bài viết mới nhé.</p>
+<p><img src="/images/24-08/03.png" alt="03"></p>
+<p>Bật <code>terminal</code>, gõ <code>hugo new posts/hello.md</code>. Trong đó <code>posts</code> là thư mục <code>posts</code>, <code>hello.md</code> là file để viết bài. Các bạn cấu hình lại như sau.</p>
+<p><img src="/images/24-08/04.png" alt="04"></p>
+<p>Quay lại trình duyệt và check thử xem như nào…</p>
+<p><img src="/images/24-08/05.png" alt="05"></p>
+<p>Ok rồi nè, tiếp theo….</p>
+<h2 id="5deploy-lên-gihub-để-gửi-link-sang-khoe-với-bạn-bè-hay-bạn-bồ-nào">5.	Deploy lên gihub để gửi link sang khoe với bạn bè hay bạn bồ nào.</h2>
+<p>Trước tiên vào <code>github</code> tạo một cái <code>repository</code> để chứa <code>source code</code> và đặt tên theo cấu trúc như này để làm tên miền cho trang blog của mình luôn.
+<code>&lt;username&gt;.github.io</code></p>
+<p>Còn nếu đặt một tên khác, ví dụ như đặt repository là Myblog thì sau này muốn vào trang Blog của bạn, bạn phải gõ <code>&lt;username&gt;.github.io/Myblog</code>.</p>
+<p>Chọn <code>Public</code> để được được kích hoạt Github Pages nhé. Tích vào ô <code>Initialize this repository</code>… Sau đó <code>Create repository thôi</code>.</p>
+<p><img src="/images/24-08/06.png" alt="06"></p>
+<p>Ok, bước tiếp theo mình sẽ kết nối giữa <code>repository</code> trên <code>git</code> và <code>repository</code> dưới <code>local</code> của mình (là thư mục QuanBlog), mục đích là để nó nhận ra là cùng chung một nhà với nhau, để lát <code>push</code> được <code>source code</code> dưới <code>local</code> lên. Mình sẽ chỉ đẩy code ở thư mục <code>public</code> lên (thư mục này <code>generate source code</code> của mình ra <code>html</code> để hiển thị lên web). Nếu các bạn không thấy thư mục này thì vào thư mục chính gọi <code>cmd</code> và nhập lệnh <code>hugo</code> nhé. Sau đó vào thư mục <code>public</code> và <code>remote repo</code> trên git về.</p>
+<ul>
+<li>git init <!-- raw HTML omitted --></li>
+<li>git remote add origin <a href="https://github.com/hongquanhak/hongquanhak.github.io.git">https://github.com/hongquanhak/hongquanhak.github.io.git</a></li>
+</ul>
+<p>Commit và push code lên github thôi nào.</p>
+<ul>
+<li>git add .</li>
+<li>git commit -m “first commit”</li>
+<li>git push -u origin master (git push -f orgin master)</li>
+</ul>
+<p><img src="/images/24-08/07.png" alt="07"></p>
+<p>Vào kiểm tra trong <code>repository</code> thấy như này là bạn đã push code thành công rồi đấy. Tiếp theo vào <code>Settings</code>, ở trong mục <code>Options</code>, kéo xuống phía dưới mục <code>GitHub Pages</code> và bạn sẽ thấy như ảnh dưới đây, nghĩa là bạn đã có thể sử dụng trang web rồi.</p>
+<p><img src="/images/24-08/08.png" alt="08"></p>
+<p>Tèn tén, háo hức quá, vào kiểm tra trang web của mình nào.</p>
+<p><img src="/images/24-08/09.png" alt="09"></p>
+<p>Nhưng mà, ối, tại sao nó lại ra như thế này, huhu. Đừng quá lo lắng, chúng ta sẽ giải quyết nhanh thôi mà. Hãy quay lại source code của bạn, vào file <code>config.toml</code> (ở folder chính chứ không phải trong folder theme nhé). Sửa dòng <code>baseURL = “https://hongquanhak.github.io/”</code>. Nghĩa là trỏ tới trang web của bạn.</p>
+<p>Sau đó bật terminal lên nhập lệnh <code>hugo</code> để nó <code>generate</code> sang thư mục <code>public</code>. Cuối cùng vào thư mục <code>public</code> và <code>git add .</code> -&gt; <code>git commit -m “gì gì đó”</code>  -&gt;<code> git push origin master</code></p>
+<p><img src="/images/24-08/10.png" alt="10"></p>
+<p>Đợi tầm 10s để github cập nhật lại trạng thái và cuối cùng, chần chừ gì nữa mà không bật trang web của mình và tận hưởng thành quả…</p>
+<p><img src="/images/24-08/11.png" alt="11"></p>
+<p>Okey, vậy là xong rồi đó, muốn chỉnh sửa thêm thì các bạn vào file <code>config.toml</code> để sửa theo ý muốn của mình và có thể tìm hiểu thêm về <code>golang</code> để vọc vạch nhiều trò hơn trên trang blog nhé. Chúc các bạn có một trang blog thật hịn &lt;3</p>
+<p>P/s: À mà nữa, nên tạo thêm một cái repository trên github và để ở chế độ <code>Private</code> xong rồi push toàn bộ source code của mình lên đấy để lỡ sau này có mất file thì còn <code>clone</code> trên git về và tái sử dụng được nhé.</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

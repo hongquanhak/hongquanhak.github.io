@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Quan Kuyo ">
+<meta name="description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình." />
+<meta name="keywords" content=", hugo, blog" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/" />
+
+
+    <title>
+        
+            Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không? :: QUAN KUYO  — Blog about programming, english and life 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://hongquanhak.github.io/main.154a87e0ff720e102948892a8eb80881aa81a4faf37376f3093be219f6296c3d.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hongquanhak.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hongquanhak.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hongquanhak.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://hongquanhak.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://hongquanhak.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://hongquanhak.github.io/images/favicon.png" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?">
+<meta itemprop="description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.">
+<meta itemprop="datePublished" content="2020-08-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1173">
+<meta itemprop="image" content="https://hongquanhak.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="hugo,blog," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/"/>
+
+<meta name="twitter:title" content="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?"/>
+<meta name="twitter:description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình."/>
+
+
+
+    <meta property="og:title" content="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?" />
+<meta property="og:description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/" />
+<meta property="og:image" content="https://hongquanhak.github.io/"/>
+<meta property="article:published_time" content="2020-08-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-24T00:00:00+00:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-08-24 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://hongquanhak.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /QuanKuyo/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://hongquanhak.github.io/about/">About</a></li><li><a href="https://hongquanhak.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/">Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p><em>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình. Tại sao chỉ từ A đến X, vì mình muốn để Z cho bạn tự trải nghiệm</em></p>
+</blockquote>
+<h2 id="tại-sao-chọn-hugo">Tại sao chọn Hugo?</h2>
+<p>Hugo là một nền tảng giúp bạn xây dựng một trang web tĩnh tích hợp sẵn với github được viết bằng ngôn ngữ <code>Golang</code> (con ruột của Google) và sử dụng <code>markdown</code> (file .md) để viết bài. Link dành cho bạn nào chưa biết về <code>markdown</code> <a href="https://quantrimang.com/cu-phap-markdown-can-ban-163963">tại đây</a>. Vậy tại sao mình lại sử dụng Hugo để tạo blog?</p>
+<p> <strong>Ưu điểm</strong>:</p>
+<ul>
+<li>Tốc độ build trang web nhanh <!-- raw HTML omitted --></li>
+<li>Không có cơ sở dữ liệu, plugin không yêu cầu bất cứ quyền nào, không lo ngại về bảo mật.</li>
+<li>Không có quá nhiều thứ phải tìm hiểu để bắt đầu.</li>
+</ul>
+<p> <strong>Nhược điểm</strong>:</p>
+<ul>
+<li>Chắc là bạn phải biết chút ít về lập trình thì sẽ dễ dàng hơn.</li>
+</ul>
+<p>Nào, bây giờ vào vấn đề chính, cùng tạo ra một trang web cho chính mình để khoe với bạn bè nào.</p>
+<h2 id="1cài-đặt-hugo-trên-window">1.	Cài đặt Hugo trên Window</h2>
+<p>Vì mình đang dùng Window nên mình sẽ hướng dẫn cài đặt ở trên Window thôi nhé.</p>
+<p>Link tải: <a href="https://github.com/gohugoio/hugo/releases">Hugo -&gt; chọn phiên bản Windows-64bit</a></p>
+<p>Tải về -&gt; giải nén vào thư mục bất kỳ.</p>
+<p>Vào Control Panel -&gt; System and Security -&gt; System -&gt; Advanced system settings -&gt; Tab “Advanced” và cài đặt như hình.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/01.png" alt="01"></p>
+<p>Mở <code>cmd</code> và gõ lệnh <code>hugo version</code>. Nếu hiển thị dòng “Hugo Static Site Generator…” thì có nghĩa là bạn đã cài Hugo thành công. 
+Okeee, vậy là đã xong bước đầu tiên trong hành trình tạo blog cá nhân, tiếp theo chúng ta sẽ …..</p>
+<h2 id="2tạo-thư-mục-mà-bạn-lưu-source-code-dưới-local">2.	Tạo thư mục mà bạn lưu source code dưới local.</h2>
+<p>Chọn một thư mục bất kì và gọi <code>cmd</code>. Ở đây mình sẽ tạo thư mục <code>QuanBlog</code> ở ổ đĩa F bằng cách vào ổ F, gọi cmd và sử dụng lệnh <code>hugo new site QuanBlog</code>. Tận hưởng thành quả…tadaaa.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/031.png" alt="031"></p>
+<h2 id="3chọn-theme-cho-blog-của-bạn">3.	Chọn theme cho blog của bạn.</h2>
+<p>Hugo cung cấp một kho theme cho bạn tha hồ lựa chọn ở <a href="https://themes.gohugo.io/.">https://themes.gohugo.io/.</a></p>
+<p>Ở bài viết này, mình sẽ sử dụng theme <strong><code>Hello Friend NG</code></strong> để làm theme chính cho blog. Yia, tải về và cấu hình thoai.</p>
+<ul>
+<li>Chọn theme và clone về thư mục blog hoặc tải file zip về sau đó giải nén và copy vào thư mục <code>themes</code> của bạn.</li>
+</ul>
+<p>Mở <code>cmd</code> và clone: <code>git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng</code></p>
+<p>Sau đó bạn vào thư mục <code>exampleSite</code> của theme mà bạn vừa tải về, copy và ghì đè toàn bộ những gì có trong đó ra ngoài thư mục chính của bạn (Bao gồm thư mục content, resources và file config.toml).</p>
+<p>Mở <code>cmd</code> lên và gõ lệnh <code>hugo server</code>, vào trình duyệt và gõ <code>localhost:1313</code>. Tadaaa…Các bạn sẽ được kết quả như này.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/02.png" alt="02"></p>
+<h2 id="4thử-viết-một-bài-chào-sân-chơi-mới-nào">4.	Thử viết một bài chào sân chơi mới nào.</h2>
+<p>Vào editor yêu thích của bạn để gõ vài dòng code nhé. Mình thì mình sử dụng <code>Visual Studio Code</code> để thực hiện nhiệm vụ này :D</p>
+<p>Các bạn sẽ thấy trong thư mục <code>content</code> có mục <code>posts</code> và các file như thế này. Xóa những bài viết mặc định của theme này và sẽ tạo bài viết mới nhé.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/03.png" alt="03"></p>
+<p>Bật <code>terminal</code>, gõ <code>hugo new posts/hello.md</code>. Trong đó <code>posts</code> là thư mục <code>posts</code>, <code>hello.md</code> là file để viết bài. Các bạn cấu hình lại như sau.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/04.png" alt="04"></p>
+<p>Quay lại trình duyệt và check thử xem như nào…</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/05.png" alt="05"></p>
+<p>Ok rồi nè, tiếp theo….</p>
+<h2 id="5deploy-lên-gihub-để-gửi-link-sang-khoe-với-bạn-bè-hay-bạn-bồ-nào">5.	Deploy lên gihub để gửi link sang khoe với bạn bè hay bạn bồ nào.</h2>
+<p>Trước tiên vào <code>github</code> tạo một cái <code>repository</code> để chứa <code>source code</code> và đặt tên theo cấu trúc như này để làm tên miền cho trang blog của mình luôn.
+<code>&lt;username&gt;.github.io</code></p>
+<p>Còn nếu đặt một tên khác, ví dụ như đặt repository là Myblog thì sau này muốn vào trang Blog của bạn, bạn phải gõ <code>&lt;username&gt;.github.io/Myblog</code>.</p>
+<p>Chọn <code>Public</code> để được được kích hoạt Github Pages nhé. Tích vào ô <code>Initialize this repository</code>… Sau đó <code>Create repository thôi</code>.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/06.png" alt="06"></p>
+<p>Ok, bước tiếp theo mình sẽ kết nối giữa <code>repository</code> trên <code>git</code> và <code>repository</code> dưới <code>local</code> của mình (là thư mục QuanBlog), mục đích là để nó nhận ra là cùng chung một nhà với nhau, để lát <code>push</code> được <code>source code</code> dưới <code>local</code> lên. Mình sẽ chỉ đẩy code ở thư mục <code>public</code> lên (thư mục này <code>generate source code</code> của mình ra <code>html</code> để hiển thị lên web). Nếu các bạn không thấy thư mục này thì vào thư mục chính gọi <code>cmd</code> và nhập lệnh <code>hugo</code> nhé. Sau đó vào thư mục <code>public</code> và <code>remote repo</code> trên git về.</p>
+<ul>
+<li>git init <!-- raw HTML omitted --></li>
+<li>git remote add origin <a href="https://github.com/hongquanhak/hongquanhak.github.io.git">https://github.com/hongquanhak/hongquanhak.github.io.git</a></li>
+</ul>
+<p>Commit và push code lên github thôi nào.</p>
+<ul>
+<li>git add .</li>
+<li>git commit -m “first commit”</li>
+<li>git push -u origin master (git push -f orgin master)</li>
+</ul>
+<p><img src="https://hongquanhak.github.io/images/24-08/07.png" alt="07"></p>
+<p>Vào kiểm tra trong <code>repository</code> thấy như này là bạn đã push code thành công rồi đấy. Tiếp theo vào <code>Settings</code>, ở trong mục <code>Options</code>, kéo xuống phía dưới mục <code>GitHub Pages</code> và bạn sẽ thấy như ảnh dưới đây, nghĩa là bạn đã có thể sử dụng trang web rồi.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/08.png" alt="08"></p>
+<p>Tèn tén, háo hức quá, vào kiểm tra trang web của mình nào.</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/09.png" alt="09"></p>
+<p>Nhưng mà, ối, tại sao nó lại ra như thế này, huhu. Đừng quá lo lắng, chúng ta sẽ giải quyết nhanh thôi mà. Hãy quay lại source code của bạn, vào file <code>config.toml</code> (ở folder chính chứ không phải trong folder theme nhé). Sửa dòng <code>baseURL = “https://hongquanhak.github.io/”</code>. Nghĩa là trỏ tới trang web của bạn.</p>
+<p>Sau đó bật terminal lên nhập lệnh <code>hugo</code> để nó <code>generate</code> sang thư mục <code>public</code>. Cuối cùng vào thư mục <code>public</code> và <code>git add .</code> -&gt; <code>git commit -m “gì gì đó”</code>  -&gt;<code> git push origin master</code></p>
+<p><img src="https://hongquanhak.github.io/images/24-08/10.png" alt="10"></p>
+<p>Đợi tầm 10s để github cập nhật lại trạng thái và cuối cùng, chần chừ gì nữa mà không bật trang web của mình và tận hưởng thành quả…</p>
+<p><img src="https://hongquanhak.github.io/images/24-08/11.png" alt="11"></p>
+<p>Okey, vậy là xong rồi đó, muốn chỉnh sửa thêm thì các bạn vào file <code>config.toml</code> để sửa theo ý muốn của mình và có thể tìm hiểu thêm về <code>golang</code> để vọc vạch nhiều trò hơn trên trang blog nhé. Chúc các bạn có một trang blog thật hịn &lt;3</p>
+<p>P/s: À mà nữa, nên tạo thêm một cái repository trên github và để ở chế độ <code>Private</code> xong rồi push toàn bộ source code của mình lên đấy để lỡ sau này có mất file thì còn <code>clone</code> trên git về và tái sử dụng được nhé.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7" y2="7"></line>
+          </svg><span class="tag"><a href="https://hongquanhak.github.io/tags/hugo/">hugo</a></span><span class="tag"><a href="https://hongquanhak.github.io/tags/blog/">blog</a></span>
+        </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1173 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        2020-08-24
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons" style="display: flex">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=T%e1%ba%a1o%20blog%20c%c3%a1%20nh%c3%a2n%20n%c4%83m%202020%20b%e1%ba%b1ng%20Hugo%20t%e1%bb%ab%20A%20%c4%91%e1%ba%bfn%20X.%20T%e1%ba%a1i%20sao%20kh%c3%b4ng%3f&amp;body=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f&amp;title=T%e1%ba%a1o%20blog%20c%c3%a1%20nh%c3%a2n%20n%c4%83m%202020%20b%e1%ba%b1ng%20Hugo%20t%e1%bb%ab%20A%20%c4%91%e1%ba%bfn%20X.%20T%e1%ba%a1i%20sao%20kh%c3%b4ng%3f&amp;summary=T%e1%ba%a1o%20blog%20c%c3%a1%20nh%c3%a2n%20n%c4%83m%202020%20b%e1%ba%b1ng%20Hugo%20t%e1%bb%ab%20A%20%c4%91%e1%ba%bfn%20X.%20T%e1%ba%a1i%20sao%20kh%c3%b4ng%3f&amp;source=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2ft%25E1%25BA%25A1o-blog-c%25C3%25A1-nh%25C3%25A2n-n%25C4%2583m-2020-b%25E1%25BA%25B1ng-hugo-t%25E1%25BB%25AB-a-%25C4%2591%25E1%25BA%25BFn-x.-t%25E1%25BA%25A1i-sao-kh%25C3%25B4ng%2f&amp;resubmit=true&amp;title=T%e1%ba%a1o%20blog%20c%c3%a1%20nh%c3%a2n%20n%c4%83m%202020%20b%e1%ba%b1ng%20Hugo%20t%e1%bb%ab%20A%20%c4%91%e1%ba%bfn%20X.%20T%e1%ba%a1i%20sao%20kh%c3%b4ng%3f" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+            <span class="button previous">
+              <a href="https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Lấy dữ liệu từ một API sử dụng React/Redux</span>
+              </a>
+            </span>
+          
+
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://hongquanhak.github.io/">Quan Kuyo</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://hongquanhak.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://hongquanhak.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>

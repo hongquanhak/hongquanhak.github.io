@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Quan Kuyo ">
+<meta name="description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn." />
+<meta name="keywords" content=", react, redux, fetch api" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/" />
+
+
+    <title>
+        
+            Lấy dữ liệu từ một API sử dụng React/Redux :: QUAN KUYO  — Blog about programming, english and life 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://hongquanhak.github.io/main.154a87e0ff720e102948892a8eb80881aa81a4faf37376f3093be219f6296c3d.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hongquanhak.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hongquanhak.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hongquanhak.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://hongquanhak.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://hongquanhak.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://hongquanhak.github.io/images/favicon.png" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="Lấy dữ liệu từ một API sử dụng React/Redux">
+<meta itemprop="description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.">
+<meta itemprop="datePublished" content="2020-08-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-08-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2317">
+<meta itemprop="image" content="https://hongquanhak.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="react,redux,fetch api," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/"/>
+
+<meta name="twitter:title" content="Lấy dữ liệu từ một API sử dụng React/Redux"/>
+<meta name="twitter:description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn."/>
+
+
+
+    <meta property="og:title" content="Lấy dữ liệu từ một API sử dụng React/Redux" />
+<meta property="og:description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/" />
+<meta property="og:image" content="https://hongquanhak.github.io/"/>
+<meta property="article:published_time" content="2020-08-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-25T00:00:00+00:00" />
+
+
+
+
+
+
+    <meta property="article:published_time" content="2020-08-25 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://hongquanhak.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /QuanKuyo/</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://hongquanhak.github.io/about/">About</a></li><li><a href="https://hongquanhak.github.io/posts/">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        11 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/">Lấy dữ liệu từ một API sử dụng React/Redux</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p><em>Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.</em></p>
+</blockquote>
+<h3 id="nguồn-bài-viết-fetching-data-from-an-api-using-reactreduxhttpsdevtomarkusclausfetching-data-from-an-api-using-reactredux-55ao"><em>Nguồn bài viết: <a href="https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao">Fetching data from an api using React/Redux</a></em></h3>
+<h2 id="bắt-đầu">Bắt đầu</h2>
+<p>Tôi quyết định chia sẻ một số kiến thức mà tôi đã thu được thông qua việc mắc sai lầm mà bạn cũng có thể mắc phải. Mọi thứ tôi viết ở đây tôi đều học được bằng cách đọc những bài viết trên blog, cố gắng hiểu những gì đã làm được và <code>“trial and error”</code> (đây là cách hoàn thành công việc bằng việc dùng phép thử thông qua những phương pháp khác nhau cho đến khi tìm được phương pháp đúng).</p>
+<p>Bây giờ, những điều đầu tiên là bạn cần làm là cài đặt <strong><code>React</code></strong> và <strong><code>Redux</code></strong>. Tôi giả sử là bạn đã biết cách cài đặt chúng. Sau đó, bạn sẽ thiết lập ứng dụng <strong><code>React</code></strong> của bạn, bạn cần cài đặt một công cụ được gọi là <strong><code>redux-thunk</code></strong> bằng cách sử dụng lệnh <code>“npm install redux-thunk”</code>.</p>
+<p>Với tất cả những gì đã được cài đặt, giờ đây chúng ta có thể xem xét những <strong>Component</strong> mà chúng ta sẽ cần để biến những điều kì diệu thành hiện thực!</p>
+<h2 id="thunk-là-cái-gì-vậy">Thunk là cái gì vậy?</h2>
+<p>Về cơ bản, <strong><code>thunk</code></strong> là một function được gọi bởi một function khác. Chờ đã… Cái gì? Vâng, đó là cách mà tôi đã phản ứng khi lần đầu tiên tôi nghe tới điều này. Hãy để tôi cho bạn xem một ví dụ:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">some_function</span>() {
+    <span style="color:#75715e">// do something
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">thunk</span>() {
+        <span style="color:#75715e">// do something thunky later
+</span><span style="color:#75715e"></span>    }
+}
+</code></pre></div><p>Như vậy, <strong><code>some_function</code></strong> được gọi, nó làm một vài việc và sau đó trả về một hàm mới với các câu lệnh và có thể là các dữ liệu dùng cho sau này.</p>
+<h2 id="vậy-còn-redux-thì-sao"><strong>Vậy còn Redux thì sao?</strong></h2>
+<p>Tôi không muốn đào sâu về <strong><code>Redux</code></strong> (chính xác hơn là tôi không thể). Vì vậy, lời giải thích ngắn gọn chỉ là: Nó là nơi chứa đựng các <strong><code>state</code></strong> trong ứng dụng <strong><code>javascript</code></strong>. Nó giữ tất cả những dữ liệu bạn cần trong ứng dụng của bạn ở một nơi. Mọi <strong><code>component</code></strong> trong ứng dụng của bạn đều có không gian ở trong vùng chứa <strong><code>state</code></strong> nơi mà bạn tìm kiếm dữ liệu. Khi dữ liệu được thay đổi thì <strong><code>component</code></strong> cũng sẽ thay đổi theo.</p>
+<h2 id="actions"><strong>Actions</strong></h2>
+<p>Ý tưởng là bạn gửi các <strong><code>action</code></strong> lên <strong><code>redux</code></strong> và dựa trên những <strong><code>action</code></strong> đó, <strong><code>state</code></strong> được thay đổi.
+Điều buồn cười là: Một <strong><code>action</code></strong> không được làm bất cứ thứ gì, nghe thì có vẻ như có những thứ đang diễn ra, nhưng thực ra là không có. Một <strong><code>action</code></strong> chỉ đơn giản là một đối tượng với một <strong><code>type key</code></strong>. Như thế này:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// this is an action
+</span><span style="color:#75715e"></span>{
+    <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;SOME_ACTION&#34;</span>,
+    <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> {}
+}
+</code></pre></div><p>Hầu hết thời gian bạn không muốn viết đi viết lại cùng một đối tượng, vì thế có một khái niệm được gọi là <strong><code>Action Creators</code></strong>.</p>
+<h2 id="action-creators">Action Creators.</h2>
+<p><strong><code>Action Creators</code></strong> thực hiện chính xác những gì mà chúng nghe, chúng tạo ra những đối tượng action cho bạn.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">SOME_ACTION</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SOME_ACTION&#34;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">create_action</span>(<span style="color:#a6e22e">data</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">SOME_ACTION</span>,
+        <span style="color:#a6e22e">payload</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">data</span>
+    }
+}
+</code></pre></div><p>Vì vậy với những <strong><code>action creators</code></strong> đó, bạn có thể dễ dàng sử dụng <code>SOME_ACTION</code> ngay bây giờ bằng cách gọi <code>create_action(data)</code>. Những action creators đó có thể được gửi lên <strong><code>redux</code></strong> bằng cách sử dụng <code>dispatch(create_action(data))</code>.</p>
+<h2 id="reducers">Reducers</h2>
+<p>Sau khi một <strong><code>action</code></strong> được gửi lên, nó sẽ được truyền vào một cái gọi là <strong><code>Reducer</code></strong>. Một <strong><code>reducer</code></strong> là một hàm chức năng được đưa ra một <strong><code>state</code></strong> và một <strong><code>action</code></strong>. Tùy vào <strong><code>action</code></strong> mà nó sẽ biến đổi <strong><code>state</code></strong> và sau đó sẽ trả về một <strong><code>state</code></strong> mới.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">someReducer</span>(<span style="color:#a6e22e">state</span>, <span style="color:#a6e22e">action</span>) {
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">SOME_ACTION</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">data</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>
+            }
+        <span style="color:#66d9ef">break</span>;
+
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+            <span style="color:#75715e">// the dispatched action is not in this reducer, return the state unchanged
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+    }
+}
+</code></pre></div><p>Những ứng dụng phức tạp hơn rất có thể có 2 <strong><code>reducer</code></strong>, mỗi một <strong><code>reducer</code></strong> sẽ chịu trách nhiệm cho một phần của <strong><code>state</code></strong>. Vì vậy, điều quan trọng là không bao giờ được phép quên trường hợp mặc định (là trường hợp mà <strong><code>reducer</code></strong> trả về <strong><code>state</code></strong> chưa được thay đổi).
+Điều quan trọng cần lưu ý rằng các <strong><code>reducer</code></strong> là các hàm thuần khiết. Chúng không bao giờ gọi một cái gì đó giống như <strong><code>API</code></strong> hoặc gửi một <strong><code>action</code></strong> khác tới <strong><code>redux</code></strong>.</p>
+<h2 id="bạn-đã-nói-về-thunks-chưa">Bạn đã nói về thunks chưa?</h2>
+<p>Bạn đã nhớ điều đó. Okay, nói về <strong><code>thunks</code></strong> một lần nữa. Tôi chỉ đề cập đến <strong><code>reducers</code></strong> là thuần khiết. Nhưng thường thì chúng ta muốn có một loại lệnh gọi <strong><code>API</code></strong> hoặc gửi một cái gì đó tùy thuộc vào dữ liệu hoặc bất cứ cái gì… Nhưng chúng ta không thể… <strong><code>reducers</code></strong> là thuần khiết… <strong><code>Redux-Thunk</code></strong> sẽ làm điều đó.</p>
+<p><strong><code>Redux-Thunk</code></strong> khá dễ hiểu. Nó được coi như là một đoạn mã trung gian cho <strong><code>redux store</code></strong>. Nó xem xét mọi <strong><code>action</code></strong> đơn lẻ được gửi đi và nếu nó là một hàm, nó sẽ gọi cái hàm đó. Nhưng điều này mở ra một thế giới hoàn toàn mới của những “<strong><code>action</code></strong>” lạ mắt được gửi đến <strong><code>redux</code></strong>.
+Bạn có thắc mắc, làm thế nào tôi nhận được điều kì diệu nhỏ này vào <strong><code>store</code></strong> của tôi?</p>
+<h2 id="hãy-lấy-một-số-products">Hãy lấy một số products</h2>
+<p>Chúng ta muốn nạp một số <strong><code>product</code></strong> từ <strong><code>API</code></strong> của chúng ta. Để làm điều này, đầu tiên chúng ta thiết lập <strong><code>component</code></strong> trong một số loại <strong><code>state</code></strong> đang chờ xử lý, chúng ta hiển thị một cái gọi là <strong><code>loading spinner</code></strong> hay một cái gì đó tương tự. Sau đó, chúng ta tải dữ liệu và quyết định xem chúng ta có thể hiển thị danh sách <strong><code>product</code></strong> được hay không hoặc hiển thị một số loại thông báo lỗi.
+Chúng ta bắt đầu thiết lập <strong><code>action creators.</code></strong></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// action.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_PENDING&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_SUCCESS&#39;</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;FETCH_PRODUCTS_ERROR&#39;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsPending</span>() {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span>
+    }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsSuccess</span>(<span style="color:#a6e22e">products</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span>
+        <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">products</span>
+    }
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProductsError</span>(<span style="color:#a6e22e">error</span>) {
+    <span style="color:#66d9ef">return</span> {
+        <span style="color:#a6e22e">type</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span>
+        <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">error</span>
+    }
+}
+</code></pre></div><p>Bây giờ chúng ta đã có <strong><code>action creators</code></strong>, hãy thiết lập <strong><code>reducer</code></strong> cho toàn bộ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// reducer.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span>, <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span>, <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./actions&#39;</span>;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">initialState</span> <span style="color:#f92672">=</span> {
+    <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+    <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> [],
+    <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">null</span>
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">productsReducer</span>(<span style="color:#a6e22e">state</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">initialState</span>, <span style="color:#a6e22e">action</span>) {
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">type</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_PENDING</span><span style="color:#f92672">:</span> 
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">true</span>
+            }
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_SUCCESS</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">payload</span>
+            }
+        <span style="color:#66d9ef">case</span> <span style="color:#a6e22e">FETCH_PRODUCTS_ERROR</span><span style="color:#f92672">:</span>
+            <span style="color:#66d9ef">return</span> {
+                ...<span style="color:#a6e22e">state</span>,
+                <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#66d9ef">false</span>,
+                <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">action</span>.<span style="color:#a6e22e">error</span>
+            }
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span> 
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">state</span>;
+    }
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProducts</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">products</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProductsPending</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">pending</span>;
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">getProductsError</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; <span style="color:#a6e22e">state</span>.<span style="color:#a6e22e">error</span>;
+</code></pre></div><p>Okay, bây giờ chúng ta có một phần lớn công việc được thực hiện.
+Những điều cần lưu ý trong đoạn code trên là ba hàm ở cuối <strong><code>reducer</code></strong>. Chúng được gọi là các <strong><code>selector</code></strong>. Các <strong><code>Selector</code></strong> được sử dụng để lấy các phần được định nghĩa của <strong><code>state</code></strong>.</p>
+<p>Trong những ứng dụng nhỏ, chúng thực sự cần thiết. Nhưng nếu bạn mở rộng quy mô ứng dụng của mình và nó càng ngày càng phức tạp hơn, nó sẽ thực sự lộn xộn nếu bạn thay đổi một cái gì đó trong <strong><code>state</code></strong> của bạn. 
+Tôi chắc chắn sẽ làm một bài blog về các <strong><code>selector</code></strong>, bởi vì tôi nghĩ rằng chúng thực sự quan trọng để thiết lập một ứng dụng <strong><code>react/redux</code></strong> có thể mở rộng.</p>
+<p>Chúng ta đang ở đâu… À vâng, một phần lớn công việc đã hoàn thành. Điều duy nhất còn lại cho chúng ta để làm về phía <strong><code>redux</code></strong> là viết một trong những <strong><code>action</code></strong> mới.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">// fetchProducts.js
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">fetchProductsPending</span>, <span style="color:#a6e22e">fetchProductsSuccess</span>, <span style="color:#a6e22e">fetchProductsError</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;actions&#39;</span>;
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">fetchProducts</span>() {
+    <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">dispatch</span> =&gt; {
+        <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsPending</span>());
+        <span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://exampleapi.com/products&#39;</span>)
+        .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">json</span>())
+        .<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span> =&gt; {
+            <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">error</span>) {
+                <span style="color:#66d9ef">throw</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">error</span>);
+            }
+            <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsSuccess</span>(<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">products</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">products</span>;
+        })
+        .<span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">error</span> =&gt; {
+            <span style="color:#a6e22e">dispatch</span>(<span style="color:#a6e22e">fetchProductsError</span>(<span style="color:#a6e22e">error</span>));
+        })
+    }
+}
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">fetchProducts</span>;
+</code></pre></div><p><strong><code>Action</code></strong> trên khá là đơn giản. Đầu tiên chúng ta gửi <strong><code>pending action</code></strong>. Sau đó lấy dữ liệu từ <strong><code>API</code></strong> của chúng ta. Tiếp đo giải mã <strong><code>json</code></strong> và truyền vào một <strong><code>object</code></strong>. Cuối cùng kiểm tra lỗi. Nếu có lỗi xảy ra, chúng ta sẽ <strong><code>throw</code></strong> nó và gọi hàm <strong><code>error</code></strong>. Nếu mọi thứ hoạt động bình thường, chúng ta gọi <strong><code>success action (fetchProductsSuccess)</code></strong>. <strong><code>Reducer</code></strong> sẽ xử lý phần còn lại.
+Đây là tất cả về lấy dữ liệu từ <strong><code>server</code></strong>… Không, đùa thôi, không phải vậy đâu. Nhưng đây là cách kết thúc về việc lấy dữ liệu từ <strong><code>api</code></strong> mà hầu hết các bài viết đã làm, đúng không. Nhưng…</p>
+<h2 id="những-gì-về-ứng-dụng-của-chúng-ta">Những gì về ứng dụng của chúng ta?</h2>
+<p>Oh, bạn muốn các sản phẩm từ <strong><code>store</code></strong> của bạn thực sự hiển thị trong ứng dụng <strong><code>react</code></strong> của bạn? Okay, hãy làm điều đó.
+Tôi giả dụ như bạn biết cách để kết nối ứng dụng <strong><code>react</code></strong> của bạn tới <strong><code>redux store</code></strong> bằng <strong><code>provider</code></strong>. Có rất nhiều bài viết về chủ đề này ở ngoài kia. Sau khi bạn làm điều đó, bạn sẽ cần một vài <strong><code>component</code></strong>.</p>
+<p>Cho tôi mọi thứ bắt đầu về một <strong><code>view</code></strong>. Đối với tôi, một <strong><code>view</code></strong> là một <strong><code>component</code></strong> bao bọc mọi thứ mà một <strong><code>user</code></strong> nhận được trong một <strong><code>component</code></strong> cha. <strong><code>Component</code></strong> cha này hầu hết đều có kết nối tới <strong><code>redux store</code></strong> và chia sẻ dữ liệu với <strong><code>component</code></strong> mà nó gói gọn.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span>, { <span style="color:#a6e22e">Component</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">PropTypes</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;prop-types&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">connect</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react-redux&#39;</span>;
+<span style="color:#66d9ef">import</span> { <span style="color:#a6e22e">bindActionCreators</span> } <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;redux&#39;</span>;
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">fetchProductsAction</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;fetchProducts&#39;</span>;
+<span style="color:#66d9ef">import</span> {<span style="color:#a6e22e">getProductsError</span>, <span style="color:#a6e22e">getProducts</span>, <span style="color:#a6e22e">getProductsPending</span>} <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;reducer&#39;</span>;
+
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">LoadingSpinner</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./SomeLoadingSpinner&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">ProductList</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;./ProductList&#39;</span>;
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ProductView</span> <span style="color:#66d9ef">extends</span> <span style="color:#a6e22e">Component</span> {
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">props</span>) {
+        <span style="color:#66d9ef">super</span>(<span style="color:#a6e22e">props</span>);
+
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span>.<span style="color:#a6e22e">bind</span>(<span style="color:#66d9ef">this</span>);
+    }
+
+    <span style="color:#a6e22e">componentWillMount</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">fetchProducts</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+        <span style="color:#a6e22e">fetchProducts</span>();
+    }
+
+    <span style="color:#a6e22e">shouldComponentRender</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">pending</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+        <span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">pending</span> <span style="color:#f92672">===</span> <span style="color:#66d9ef">false</span>) <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">false</span>;
+        <span style="color:#75715e">// more tests
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">true</span>;
+    }
+
+    <span style="color:#a6e22e">render</span>() {
+        <span style="color:#66d9ef">const</span> {<span style="color:#a6e22e">products</span>, <span style="color:#a6e22e">error</span>, <span style="color:#a6e22e">pending</span>} <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">props</span>;
+
+        <span style="color:#66d9ef">if</span>(<span style="color:#f92672">!</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">shouldComponentRender</span>()) <span style="color:#66d9ef">return</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">LoadingSpinner</span> <span style="color:#f92672">/&gt;</span>
+
+        <span style="color:#66d9ef">return</span> (
+            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;product-list-wrapper&#39;</span><span style="color:#f92672">&gt;</span>
+                {<span style="color:#a6e22e">error</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">span</span> <span style="color:#a6e22e">className</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;product-list-error&#39;</span><span style="color:#f92672">&gt;</span>{<span style="color:#a6e22e">error</span>}<span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/span&gt;}</span>
+                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">ProductList</span> <span style="color:#a6e22e">products</span><span style="color:#f92672">=</span>{<span style="color:#a6e22e">products</span>} <span style="color:#f92672">/&gt;</span>
+            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
+        )
+    }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapStateToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">state</span> =&gt; ({
+    <span style="color:#a6e22e">error</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProductsError</span>(<span style="color:#a6e22e">state</span>),
+    <span style="color:#a6e22e">products</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProducts</span>(<span style="color:#a6e22e">state</span>),
+    <span style="color:#a6e22e">pending</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">getProductsPending</span>(<span style="color:#a6e22e">state</span>)
+})
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">mapDispatchToProps</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">dispatch</span> =&gt; <span style="color:#a6e22e">bindActionCreators</span>({
+    <span style="color:#a6e22e">fetchProducts</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">fetchProductsAction</span>
+}, <span style="color:#a6e22e">dispatch</span>)
+
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">connect</span>(
+    <span style="color:#a6e22e">mapStateToProps</span>,
+    <span style="color:#a6e22e">mapDispatchToProps</span>
+)(<span style="color:#a6e22e">ProductView</span> );
+</code></pre></div><p>Vì vậy, rất nhiều thứ đang diễn ra ở đây. Chúng ta viết một <strong><code>component React</code></strong> tiêu chuẩn. Sau đó, chúng ta sử dụng <strong><code>connect</code></strong> để kết nối nó tới <strong><code>redux store</code></strong>. <strong><code>Connect</code></strong> có hai tham số: Một hàm <strong><code>mapStateToProps</code></strong> để ánh xạ các phần của <strong><code>state</code></strong> vào <strong><code>props</code></strong> của bạn và một hàm <strong><code>mapDispatchToProps</code></strong> để ánh xạ các hàm vào <strong><code>props</code></strong> của bạn, khi được gọi sẽ được gửi tới <strong><code>redux</code></strong>.</p>
+<p>Cuối cùng, chúng ta đặt những thứ đó lại với nhau và nhìn xem, chúng ta có một kết nối tới <strong><code>store</code></strong>.
+Ở trong hàm <strong><code>mapStateToProps</code></strong>, chúng ta sử dụng các <strong><code>selector</code></strong> mà chúng ta đã viết trước đó.
+Tôi muốn thêm chức năng gọi là <strong><code>shouldComponentRender</code></strong> vào <strong><code>component view</code></strong> và hầu hết các <strong><code>component</code></strong>. Tôi đặt tên như vậy bởi vì nó gần giống với tên của phương thức <strong><code>lifecycle</code></strong> (<strong><code>shouldComponentUpdate</code></strong>) của <strong><code>React</code></strong>. Nó kiểm tra xem <strong><code>component</code></strong> có nên <strong><code>render</code></strong> hay không. Nếu không, nó sẽ <strong><code>render</code></strong> ra <strong><code>LoadingSpinner component</code></strong>.</p>
+<p>Tôi thấy nó rất có lợi khi làm việc như thế này, bởi vì các <strong><code>component</code></strong> luôn luôn được khởi tạo lại và tất cả các <strong><code>component</code></strong> con được gắn lại sau khi <strong><code>pending flag</code></strong>, nó điều khiển hàm <strong><code>render</code></strong> trong trường hợp này. Do đó, bạn có thể thêm <strong><code>redux state</code></strong> vào <strong><code>state</code></strong> của <strong><code>component</code></strong> trong hàm khởi tạo (<strong><code>constructor</code></strong>). (Tôi không muốn nói về những gì truyền vào <strong><code>redux</code></strong> và những gì truyền vào <strong><code>component state</code></strong>, đây là chủ đề cho một bài viết khác).</p>
+<p>Trong hầu hết các dự án của tôi, tôi thấy đây là một trong những vấn đề khó chịu nhất. Hãy nghĩ về một <strong><code>component</code></strong> mà <strong><code>render</code></strong> ra một sản phẩm. Nó được khởi tạo bởi dữ liệu và sau đó một số thành phần con như <strong><code>price calculator</code></strong>, có <strong><code>component state</code></strong>, được khởi tạo trong <strong><code>constructor</code></strong> của nó.  Khi dữ liệu mới xuất hiện, bạn cần kiểm tra xem <strong><code>calculator</code></strong> có cần phải xác định lại hay không.  Với hàm <strong><code>ShouldComponentRender</code></strong>, thật dễ dàng để làm điều đó. Mỗi khi <strong><code>pending flag</code></strong> được bật (có thể do một sản phẩm mới được chọn), mọi thứ sẽ được khởi động lại và rất tốt để sử dụng.
+Tất nhiên có một vài lý do tại sao bạn lại có các <strong><code>component</code></strong> trong phần <strong><code>view</code></strong> của bạn mà không được <strong><code>render</code></strong> lại. Nếu có trường hợp như vậy, hãy loại bỏ hàm <strong><code>shouldComponentRender</code></strong> từ phần <strong><code>view</code></strong> và làm việc với nó trong các component con.</p>
+<p>Bạn có thể sử dụng một vài hiệu ứng <strong><code>fadeout/-in</code></strong> để cải thiện trải nghiệm người dùng.
+Vâng, và đó là nó.</p>
+<p>Cảm ơn đã đọc bài blog đầu tiên của tôi. Tôi hi vọng bạn sẽ thích nó, tôi hi vọng bạn đã học được một vài thứ và nếu bạn có một vài gợi ý cho tôi để cải thiện kỹ năng <strong><code>react/redux</code></strong> của tôi hoặc chỉ muốn nói “chào”, hãy để lại lời bình cho tôi. Tôi thực sự thích điều đó.</p>
+<p>&ndash;/&ndash;</p>
+<p>Yayyy, mình tạm kết bài dịch tại đây, có thể còn nhiều thiếu sót và lủng củng trong cách dịch bài, hãy góp ý với mình qua facebook or mail nhé. Cảm ơn mọi người đã đọc bài.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7" y2="7"></line>
+          </svg><span class="tag"><a href="https://hongquanhak.github.io/tags/react/">react</a></span><span class="tag"><a href="https://hongquanhak.github.io/tags/redux/">redux</a></span><span class="tag"><a href="https://hongquanhak.github.io/tags/fetch-api/">fetch api</a></span>
+        </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        2317 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        2020-08-25
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons" style="display: flex">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=L%e1%ba%a5y%20d%e1%bb%af%20li%e1%bb%87u%20t%e1%bb%ab%20m%e1%bb%99t%20API%20s%e1%bb%ad%20d%e1%bb%a5ng%20React%2fRedux&amp;body=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f&amp;title=L%e1%ba%a5y%20d%e1%bb%af%20li%e1%bb%87u%20t%e1%bb%ab%20m%e1%bb%99t%20API%20s%e1%bb%ad%20d%e1%bb%a5ng%20React%2fRedux&amp;summary=L%e1%ba%a5y%20d%e1%bb%af%20li%e1%bb%87u%20t%e1%bb%ab%20m%e1%bb%99t%20API%20s%e1%bb%ad%20d%e1%bb%a5ng%20React%2fRedux&amp;source=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f08%2fl%25E1%25BA%25A5y-d%25E1%25BB%25AF-li%25E1%25BB%2587u-t%25E1%25BB%25AB-m%25E1%25BB%2599t-api-s%25E1%25BB%25AD-d%25E1%25BB%25A5ng-react%2fredux%2f&amp;resubmit=true&amp;title=L%e1%ba%a5y%20d%e1%bb%af%20li%e1%bb%87u%20t%e1%bb%ab%20m%e1%bb%99t%20API%20s%e1%bb%ad%20d%e1%bb%a5ng%20React%2fRedux" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/">
+                <span class="button__text">Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://hongquanhak.github.io/">Quan Kuyo</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://hongquanhak.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://hongquanhak.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>
