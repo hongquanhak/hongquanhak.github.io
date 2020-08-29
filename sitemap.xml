@@ -3,38 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hongquanhak.github.io/categories/</loc>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hongquanhak.github.io/tags/fetch-api/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/posts/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hongquanhak.github.io/categories/react/</loc>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/tags/react/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/tags/redux/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://hongquanhak.github.io/tags/</loc>
-    <lastmod>2020-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hongquanhak.github.io/categories/blog/</loc>
+    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -55,10 +70,6 @@
   <url>
     <loc>https://hongquanhak.github.io/about/</loc>
     <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/categories/</loc>
   </url>
   
   <url>
