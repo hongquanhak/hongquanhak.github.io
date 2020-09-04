@@ -6,8 +6,211 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-        <lastBuildDate>Wed, 26 Aug 2020 00:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Thu, 03 Sep 2020 00:00:00 +0000</lastBuildDate>
         <atom:link href="https://hongquanhak.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>CSS Cơ bản và Nâng cao - Tối giản (P1)</title>
+            <link>https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/</link>
+            <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
+            
+            <guid>https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/</guid>
+            <description>Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?</description>
+            <content type="html"><![CDATA[<blockquote>
+<p><em>Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi</em></p>
+</blockquote>
+<h1 id="css-là-gì">CSS là gì?</h1>
+<ul>
+<li>Theo trang W3Schools, CSS viết tắt của Cascading Style Sheets.</li>
+<li>CSS mô tả cách các phần tử HTML được hiển thị trên màn hình hoặc các phương tiện khác.</li>
+<li>CSS giúp bạn kiểm soát bố cục của nhiều trang web cùng một lúc. Do đó nó tiết kiệm được rất nhiều thời gian cho bạn trong công việc.</li>
+</ul>
+<h2 id="1-cú-pháp-cơ-bản">1. Cú pháp cơ bản</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">Selector</span> {property: value;}
+</code></pre></div><p><strong>Selector</strong>: đối tượng sẽ được áp dụng: VD: body, h1, h2, img, .username, #title…</p>
+<p>Ngoài viết tên selector theo class, id, tag. Chúng ta có thể viết tên selector theo phân cấp để chỉ các ảnh trong #entry. VD: #entry img.</p>
+<p>VD 1 đoạn mã về input</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">name </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Search&#34;</span> <span style="color:#a6e22e">type </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Key Word&#34;</span>&gt;
+</code></pre></div><p>Để áp dụng CSS cho riêng thuộc tính tìm  kiếm này, ta dùng <code>input[name= “Search”]</code></p>
+<p>Dùng selector ảnh hưởng đến toàn trang web <code>* {color: red}</code></p>
+<p><strong>Property</strong>: các thuộc tính quy định cách trình bày: VD: background-color, font-family, color, padding,..</p>
+<p><strong>Value</strong>: giá trị của thuộc tính: VD: #FFF định màu trắng cho nền trang.</p>
+<h2 id="2-chú-thích-trong-css">2. Chú thích trong CSS</h2>
+<p>Chú thích (comment) sẽ được trình duyệt bỏ qua và không hiển thị trên trang web. Sử dụng cấu trúc <code>/*.........*/</code> ở trên 1 dòng hoặc nhiều dòng để chú thích. VD:</p>
+<pre><code>/* Style for image */
+</code></pre>
+<p>Ngoài ra để viết chú thích nhanh hơn, bạn hãy gõ đoạn text bạn cần chú thích, sau đó bôi đen và sử dụng cú pháp <code>Ctrl + /</code> để tạo chú thích.</p>
+<h2 id="3-nhúng-css-vào-html">3. Nhúng CSS vào HTML</h2>
+<p>Có 3 cách để thêm CSS vào file HTML</p>
+<ul>
+<li><strong>External CSS:</strong> viết CSS ở một file riêng, đặt tên là <code>&lt;name&gt;.css</code>, sau đó sử dụng thẻ <code>link</code> để nhúng file này vào trong phần <code>&lt;head&gt;</code> của file html.</li>
+</ul>
+<p>VD: file <code>myStyle.css</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">  <span style="color:#f92672">h1</span>
+  {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">purple</span>;
+  }
+  .<span style="color:#a6e22e">content</span> 
+  {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+    <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+  }
+</code></pre></div><p>file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myStyle.css&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;H1 works!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;p work!.&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li><strong>Internal CSS:</strong> đặt trong mục <code>head</code> của file html, được cấu trúc bằng cặp thẻ <code>&lt;style&gt;&lt;/style&gt;</code></li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">style</span>&gt;
+      <span style="color:#f92672">h1</span>
+      {
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+        <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">purple</span>;
+      }
+      .<span style="color:#a6e22e">content</span> 
+      {
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+        <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+        <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+      }
+    &lt;/<span style="color:#f92672">style</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">h1</span>&gt;H1 works!&lt;/<span style="color:#f92672">h1</span>&gt;
+  &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;p work!.&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li><strong>Inline CSS:</strong> áp dụng trực tiếp vào phần tử. CSS bằng cách này không được khuyến khích, việc quản lý file sẽ rất khó nếu chỉ sử dụng <code>Inline CSS</code>, vì nó chỉ áp dụng cho một element duy nhất.</li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color:white; background–color: purple;&#34;</span>&gt;H1 work!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color:red; background–color: white; text-align: center;&#34;</span>&gt;p works!&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="4-đơn-vị-css">4. Đơn vị CSS:</h2>
+<p><em>Đơn vị chiều dài</em></p>
+<blockquote>
+<ul>
+<li><strong><code>%</code></strong>: phần trăm,  là đơn vị tham chiếu tỉ lệ so với một phần tử mẹ dựa vào kích thước.</li>
+<li><strong><code>in</code></strong>: inch (1 inch = 2,54 cm)</li>
+<li><strong><code>em</code></strong>: 1em tương đương với kích thước font chữ hiện hành, nếu font hiện hành có kích thước 14px thì 1em = 14px</li>
+<li><strong><code>ex</code></strong>: 1ex bằng chiều cao của chữ x hiện hành</li>
+<li><strong><code>pt</code></strong>: Point (1pt = 1/72 inch)</li>
+<li><strong><code>pc</code></strong>: Pica (1pc = 12pt)</li>
+<li><strong><code>px</code></strong>: Pixel (điểm ảnh trên màn hình máy tính)</li>
+<li><strong><code>cm</code></strong>: định nghĩa đơn vị đo bằng cm</li>
+<li><strong><code>mm</code></strong>: định nghĩa đơn vị đo bằng mm</li>
+<li><strong><code>vh</code></strong>: 1% chiều cao của khung nhìn</li>
+<li><strong><code>vw</code></strong>: 1% chiều rộng của khung nhìn</li>
+</ul>
+</blockquote>
+<h2 id="5-sự-ưu-tiên-về-vị-trí-đặt-css">5. Sự ưu tiên về vị trí đặt CSS</h2>
+<pre><code>CSS Nội tuyến &gt; CSS bên trong &gt; CSS bên ngoài &gt; CSS mặc định của trình duyệt
+</code></pre>
+<p>Thay đổi độ ưu tiên cho thuộc tính CSS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">selector</span> {property: value <span style="color:#75715e">!important</span>}
+</code></pre></div><p>Nếu cùng một thuộc tính cho một <code>selector</code>, nếu cả 2 đều có <code>!important</code> thì cái sau được lấy.</p>
+<h2 id="6-background">6. Background</h2>
+<p><strong><code>6.1. Màu nền:</code></strong>: (background-color)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-color</span><span style="color:#f92672">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span>
+</code></pre></div><p><strong><code>6.2 Ảnh nền:</code></strong> 	(background-image)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+</code></pre></div><p><strong><code>6.3 Lặp lại ảnh nền:</code></strong>	(background-repeat)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">+</span> <span style="color:#f92672">repeat-x</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo phương ngang */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">repeat-y</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo phương dọc */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo 2 phương (Đây là giá trị mặc định) */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">no-repeat</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Không lặp lại ảnh */</span>
+</code></pre></div><p><strong><code>6.4.Khóa ảnh nền:</code></strong> (background-attachment)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-attachment</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">+</span> <span style="color:#f92672">scroll</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Ảnh nền cuộn xuống cùng nội dung trang web (Giá trị mặc định) */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">fixed</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Ảnh nền cố định khi cuộn nội dung trang web. */</span>
+</code></pre></div><p><strong><code>6.5. Định vị ảnh nền:</code></strong> (background-position)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">5cm</span> <span style="color:#f92672">2cm</span>
+<span style="color:#75715e">/* Ảnh được định vị 5cm từ trái qua, 2cm từ phải qua */</span>
+</code></pre></div><p>Chúng ta có thể nhóm thuộc tính CSS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-color</span><span style="color:#f92672">:</span> <span style="color:#f92672">transparent</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span>
+<span style="color:#f92672">background-attachment</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span>
+<span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">right</span> <span style="color:#f92672">bottom</span>
+</code></pre></div><p>thành một dòng ngắn</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background</span><span style="color:#f92672">:</span> <span style="color:#f92672">transparent</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span> <span style="color:#f92672">no-repeat</span> <span style="color:#f92672">fixed</span> <span style="color:#f92672">right</span> <span style="color:#f92672">bottom</span><span style="color:#f92672">;</span>
+</code></pre></div><h2 id="7-font-chữ">7. Font chữ</h2>
+<p><strong><code>7.1. Font-family</code></strong></p>
+<p>Định nghĩa danh sách ưu tiên các font sẽ được dùng để hiện thị lên trang web.
+Có hai loại font được chỉ định: <code>family-names</code> và <code>generic families</code></p>
+<pre><code>+ family-names: Tên cụ thể của font: Roboto, Arial, Time New Roman…
++ generic families: Tên của một họ gồm nhiều font: sans-serif, serif,…
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>;
+}
+</code></pre></div><p><strong><code>7.2. Font-style</code></strong></p>
+<p>Định nghĩa việc áp dụng các kiểu in thường, in nghiêng, hay in xiên cho chữ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">italic</span>;} 
+<span style="color:#75715e">/* (normal, oblique) */</span>
+</code></pre></div><p><strong><code>7.3. Font-variant</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường và chế <code>small-caps</code> (chữ in hoa có kích cỡ nhỏ hơn chữ in hoa bình thường) của một font chữ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-variant</span>: <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps;}
+</code></pre></div><p><strong><code>7.4. Font-weight</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường hay in đậm</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;}
+</code></pre></div><p><strong><code>7.5. Font-size</code></strong></p>
+<p>Được dùng để chỉnh kích thước font chữ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;}
+</code></pre></div><p><strong><code>7.6. Rút gọn font:</code></strong></p>
+<p>Từ việc bạn viết</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {
+  <span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">italic</span>;
+  <span style="color:#66d9ef">font-variant</span>: <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>;
+}
+</code></pre></div><p>thì có thể rút ngắn lại thành</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font</span>: <span style="color:#66d9ef">italic</span> <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps <span style="color:#66d9ef">bold</span> <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span> <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>}
+</code></pre></div><h2 id="8-text">8. Text</h2>
+<p><strong><code>8.1. Màu chữ (color)</code></strong></p>
+<p>Để định màu chữ cho một thành phần nào đó trên trang web</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {<span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#FFF</span>}
+</code></pre></div><p><strong><code>8.2. Text-indent</code></strong></p>
+<p>Tạo khoảng thụt đầu dòng cho dòng đầu tiên của văn bản</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span> {<span style="color:#66d9ef">text-indent</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>}
+</code></pre></div><p><strong><code>8.3. Text-align</code></strong></p>
+<p>Canh chỉnh văn bản cho các thành phần trong trang web. Có 4 giá trị: <code>left</code> (canh trái), <code>right</code> (canh phải), <code>center</code> (canh giữa), <code>justify</code> (canh đều).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span> {<span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">justify</span>}
+</code></pre></div><p><strong><code>8.4. Letter-spacing</code></strong></p>
+<p>Dùng để chỉnh khoảng cách giữa các ký tự trong một văn bản.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">letter-spacing</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>}
+</code></pre></div><p><strong><code>8.5. Text-decoration</code></strong>
+Thêm các hiệu ứng: <code>underline</code> (gạch chân), <code>line-through</code> (gạch xiên), <code>overline</code> (gạch đầu), <code>blink</code> (hiệu ứng nhấp nháy).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">overline</span>}
+</code></pre></div><p><strong><code>8.6. Text-transform</code></strong></p>
+<p>Quy định chế độ in hoa hay in thường của văn bản mà không phụ thuộc vào văn  bản gốc trên HTML. Có 4 giá trị: <code>uppercase</code> (in hoa), <code>lowercase</code> (in thường), <code>capitalize</code> (in hoa ký tự đầu tiên trong mỗi từ) và <code>none</code> (không áp dụng hiệu ứng).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">text-transform</span>: <span style="color:#66d9ef">uppercase</span>}
+</code></pre></div><p>Tạm thời kết thúc phần 1 ở đây nhé. Cảm ơn mọi người đã xem bài.</p>
+]]></content>
+        </item>
         
         <item>
             <title>Lấy dữ liệu từ một API sử dụng React/Redux</title>

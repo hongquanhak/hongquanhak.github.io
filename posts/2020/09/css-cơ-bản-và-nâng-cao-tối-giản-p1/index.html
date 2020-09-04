@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Quan Kuyo ">
+<meta name="description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?" />
+<meta name="keywords" content=", css" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="#252627" />
+<link rel="canonical" href="https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/" />
+
+
+    <title>
+        
+            CSS Cơ bản và Nâng cao - Tối giản (P1) :: QUAN KUYO  — Blog about programming, english and life 
+        
+    </title>
+
+
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
+    type="text/css">
+
+
+
+<link rel="stylesheet" href="https://hongquanhak.github.io/main.154a87e0ff720e102948892a8eb80881aa81a4faf37376f3093be219f6296c3d.css">
+
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="https://hongquanhak.github.io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://hongquanhak.github.io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://hongquanhak.github.io/favicon-16x16.png">
+    <link rel="manifest" href="https://hongquanhak.github.io/site.webmanifest">
+    <link rel="mask-icon" href="https://hongquanhak.github.io/safari-pinned-tab.svg" color="#252627">
+    <link rel="shortcut icon" href="https://hongquanhak.github.io/images/favicon.png" type="image/x-icon">
+    <meta name="msapplication-TileColor" content="#252627">
+    <meta name="theme-color" content="#252627">
+
+
+
+<meta itemprop="name" content="CSS Cơ bản và Nâng cao - Tối giản (P1)">
+<meta itemprop="description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?">
+<meta itemprop="datePublished" content="2020-09-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-09-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1214">
+<meta itemprop="image" content="https://hongquanhak.github.io/"/>
+
+
+
+<meta itemprop="keywords" content="css," />
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/"/>
+
+<meta name="twitter:title" content="CSS Cơ bản và Nâng cao - Tối giản (P1)"/>
+<meta name="twitter:description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?"/>
+
+
+
+    <meta property="og:title" content="CSS Cơ bản và Nâng cao - Tối giản (P1)" />
+<meta property="og:description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/" />
+<meta property="og:image" content="https://hongquanhak.github.io/"/>
+<meta property="article:published_time" content="2020-09-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-03T00:00:00+00:00" />
+
+
+
+
+    <meta property="article:section" content="Front-end" />
+
+
+
+    <meta property="article:published_time" content="2020-09-03 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+    </head>
+
+    <body class="">
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="https://hongquanhak.github.io/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text">$ cd /QuanKuyo/</span>
+            <span class="logo__cursor" style=
+                  "
+                   background-color:#ff0000;
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://hongquanhak.github.io/about/">About</a></li><li><a href="https://hongquanhak.github.io/posts/">All Posts</a></li><li><a href="https://hongquanhak.github.io/categories/">Categories</a></li><li><a href="https://hongquanhak.github.io/tags/">Tags</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+
+            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
+  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
+  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
+</svg>
+</span>
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        6 minutes
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/">CSS Cơ bản và Nâng cao - Tối giản (P1)</a>
+      </h1>
+
+      
+
+      <div class="post-content">
+        <blockquote>
+<p><em>Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi</em></p>
+</blockquote>
+<h1 id="css-là-gì">CSS là gì?</h1>
+<ul>
+<li>Theo trang W3Schools, CSS viết tắt của Cascading Style Sheets.</li>
+<li>CSS mô tả cách các phần tử HTML được hiển thị trên màn hình hoặc các phương tiện khác.</li>
+<li>CSS giúp bạn kiểm soát bố cục của nhiều trang web cùng một lúc. Do đó nó tiết kiệm được rất nhiều thời gian cho bạn trong công việc.</li>
+</ul>
+<h2 id="1-cú-pháp-cơ-bản">1. Cú pháp cơ bản</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">Selector</span> {property: value;}
+</code></pre></div><p><strong>Selector</strong>: đối tượng sẽ được áp dụng: VD: body, h1, h2, img, .username, #title…</p>
+<p>Ngoài viết tên selector theo class, id, tag. Chúng ta có thể viết tên selector theo phân cấp để chỉ các ảnh trong #entry. VD: #entry img.</p>
+<p>VD 1 đoạn mã về input</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">name </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Search&#34;</span> <span style="color:#a6e22e">type </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;text&#34;</span> <span style="color:#a6e22e">value </span><span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Key Word&#34;</span>&gt;
+</code></pre></div><p>Để áp dụng CSS cho riêng thuộc tính tìm  kiếm này, ta dùng <code>input[name= “Search”]</code></p>
+<p>Dùng selector ảnh hưởng đến toàn trang web <code>* {color: red}</code></p>
+<p><strong>Property</strong>: các thuộc tính quy định cách trình bày: VD: background-color, font-family, color, padding,..</p>
+<p><strong>Value</strong>: giá trị của thuộc tính: VD: #FFF định màu trắng cho nền trang.</p>
+<h2 id="2-chú-thích-trong-css">2. Chú thích trong CSS</h2>
+<p>Chú thích (comment) sẽ được trình duyệt bỏ qua và không hiển thị trên trang web. Sử dụng cấu trúc <code>/*.........*/</code> ở trên 1 dòng hoặc nhiều dòng để chú thích. VD:</p>
+<pre><code>/* Style for image */
+</code></pre>
+<p>Ngoài ra để viết chú thích nhanh hơn, bạn hãy gõ đoạn text bạn cần chú thích, sau đó bôi đen và sử dụng cú pháp <code>Ctrl + /</code> để tạo chú thích.</p>
+<h2 id="3-nhúng-css-vào-html">3. Nhúng CSS vào HTML</h2>
+<p>Có 3 cách để thêm CSS vào file HTML</p>
+<ul>
+<li><strong>External CSS:</strong> viết CSS ở một file riêng, đặt tên là <code>&lt;name&gt;.css</code>, sau đó sử dụng thẻ <code>link</code> để nhúng file này vào trong phần <code>&lt;head&gt;</code> của file html.</li>
+</ul>
+<p>VD: file <code>myStyle.css</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">  <span style="color:#f92672">h1</span>
+  {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">purple</span>;
+  }
+  .<span style="color:#a6e22e">content</span> 
+  {
+    <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+    <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+    <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+  }
+</code></pre></div><p>file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">link</span> <span style="color:#a6e22e">rel</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;stylesheet&#34;</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myStyle.css&#34;</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span>&gt;H1 works!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;p work!.&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li><strong>Internal CSS:</strong> đặt trong mục <code>head</code> của file html, được cấu trúc bằng cặp thẻ <code>&lt;style&gt;&lt;/style&gt;</code></li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">head</span>&gt;
+    &lt;<span style="color:#f92672">style</span>&gt;
+      <span style="color:#f92672">h1</span>
+      {
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+        <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">purple</span>;
+      }
+      .<span style="color:#a6e22e">content</span> 
+      {
+        <span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">red</span>;
+        <span style="color:#960050;background-color:#1e0010">background–</span><span style="color:#66d9ef">color</span>: <span style="color:#66d9ef">white</span>;
+        <span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">center</span>;
+      }
+    &lt;/<span style="color:#f92672">style</span>&gt;
+  &lt;/<span style="color:#f92672">head</span>&gt;
+&lt;<span style="color:#f92672">body</span>&gt;
+  &lt;<span style="color:#f92672">h1</span>&gt;H1 works!&lt;/<span style="color:#f92672">h1</span>&gt;
+  &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">class</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;content&#34;</span>&gt;p work!.&lt;/<span style="color:#f92672">p</span>&gt;
+&lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><ul>
+<li><strong>Inline CSS:</strong> áp dụng trực tiếp vào phần tử. CSS bằng cách này không được khuyến khích, việc quản lý file sẽ rất khó nếu chỉ sử dụng <code>Inline CSS</code>, vì nó chỉ áp dụng cho một element duy nhất.</li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#f92672">html</span>&gt;
+  &lt;<span style="color:#f92672">body</span>&gt;
+    &lt;<span style="color:#f92672">h1</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color:white; background–color: purple;&#34;</span>&gt;H1 work!&lt;/<span style="color:#f92672">h1</span>&gt;
+    &lt;<span style="color:#f92672">p</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;color:red; background–color: white; text-align: center;&#34;</span>&gt;p works!&lt;/<span style="color:#f92672">p</span>&gt;
+  &lt;/<span style="color:#f92672">body</span>&gt;
+&lt;/<span style="color:#f92672">html</span>&gt;
+</code></pre></div><h2 id="4-đơn-vị-css">4. Đơn vị CSS:</h2>
+<p><em>Đơn vị chiều dài</em></p>
+<blockquote>
+<ul>
+<li><strong><code>%</code></strong>: phần trăm,  là đơn vị tham chiếu tỉ lệ so với một phần tử mẹ dựa vào kích thước.</li>
+<li><strong><code>in</code></strong>: inch (1 inch = 2,54 cm)</li>
+<li><strong><code>em</code></strong>: 1em tương đương với kích thước font chữ hiện hành, nếu font hiện hành có kích thước 14px thì 1em = 14px</li>
+<li><strong><code>ex</code></strong>: 1ex bằng chiều cao của chữ x hiện hành</li>
+<li><strong><code>pt</code></strong>: Point (1pt = 1/72 inch)</li>
+<li><strong><code>pc</code></strong>: Pica (1pc = 12pt)</li>
+<li><strong><code>px</code></strong>: Pixel (điểm ảnh trên màn hình máy tính)</li>
+<li><strong><code>cm</code></strong>: định nghĩa đơn vị đo bằng cm</li>
+<li><strong><code>mm</code></strong>: định nghĩa đơn vị đo bằng mm</li>
+<li><strong><code>vh</code></strong>: 1% chiều cao của khung nhìn</li>
+<li><strong><code>vw</code></strong>: 1% chiều rộng của khung nhìn</li>
+</ul>
+</blockquote>
+<h2 id="5-sự-ưu-tiên-về-vị-trí-đặt-css">5. Sự ưu tiên về vị trí đặt CSS</h2>
+<pre><code>CSS Nội tuyến &gt; CSS bên trong &gt; CSS bên ngoài &gt; CSS mặc định của trình duyệt
+</code></pre>
+<p>Thay đổi độ ưu tiên cho thuộc tính CSS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">selector</span> {property: value <span style="color:#75715e">!important</span>}
+</code></pre></div><p>Nếu cùng một thuộc tính cho một <code>selector</code>, nếu cả 2 đều có <code>!important</code> thì cái sau được lấy.</p>
+<h2 id="6-background">6. Background</h2>
+<p><strong><code>6.1. Màu nền:</code></strong>: (background-color)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-color</span><span style="color:#f92672">:</span> <span style="color:#f92672">red</span><span style="color:#f92672">;</span>
+</code></pre></div><p><strong><code>6.2 Ảnh nền:</code></strong> 	(background-image)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+</code></pre></div><p><strong><code>6.3 Lặp lại ảnh nền:</code></strong>	(background-repeat)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">+</span> <span style="color:#f92672">repeat-x</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo phương ngang */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">repeat-y</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo phương dọc */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">repeat</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Lặp lại theo 2 phương (Đây là giá trị mặc định) */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">no-repeat</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Không lặp lại ảnh */</span>
+</code></pre></div><p><strong><code>6.4.Khóa ảnh nền:</code></strong> (background-attachment)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-attachment</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">+</span> <span style="color:#f92672">scroll</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Ảnh nền cuộn xuống cùng nội dung trang web (Giá trị mặc định) */</span>
+<span style="color:#f92672">+</span> <span style="color:#f92672">fixed</span><span style="color:#f92672">:</span> <span style="color:#75715e">/* Ảnh nền cố định khi cuộn nội dung trang web. */</span>
+</code></pre></div><p><strong><code>6.5. Định vị ảnh nền:</code></strong> (background-position)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">5cm</span> <span style="color:#f92672">2cm</span>
+<span style="color:#75715e">/* Ảnh được định vị 5cm từ trái qua, 2cm từ phải qua */</span>
+</code></pre></div><p>Chúng ta có thể nhóm thuộc tính CSS:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background-color</span><span style="color:#f92672">:</span> <span style="color:#f92672">transparent</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">background-image</span><span style="color:#f92672">:</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">background-repeat</span><span style="color:#f92672">:</span> <span style="color:#f92672">no-repeat</span>
+<span style="color:#f92672">background-attachment</span><span style="color:#f92672">:</span> <span style="color:#f92672">fixed</span>
+<span style="color:#f92672">background-position</span><span style="color:#f92672">:</span> <span style="color:#f92672">right</span> <span style="color:#f92672">bottom</span>
+</code></pre></div><p>thành một dòng ngắn</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">background</span><span style="color:#f92672">:</span> <span style="color:#f92672">transparent</span> <span style="color:#f92672">url</span><span style="color:#f92672">(</span><span style="color:#f92672">avatar</span>.<span style="color:#a6e22e">png</span><span style="color:#f92672">)</span> <span style="color:#f92672">no-repeat</span> <span style="color:#f92672">fixed</span> <span style="color:#f92672">right</span> <span style="color:#f92672">bottom</span><span style="color:#f92672">;</span>
+</code></pre></div><h2 id="7-font-chữ">7. Font chữ</h2>
+<p><strong><code>7.1. Font-family</code></strong></p>
+<p>Định nghĩa danh sách ưu tiên các font sẽ được dùng để hiện thị lên trang web.
+Có hai loại font được chỉ định: <code>family-names</code> và <code>generic families</code></p>
+<pre><code>+ family-names: Tên cụ thể của font: Roboto, Arial, Time New Roman…
++ generic families: Tên của một họ gồm nhiều font: sans-serif, serif,…
+</code></pre>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>;
+}
+</code></pre></div><p><strong><code>7.2. Font-style</code></strong></p>
+<p>Định nghĩa việc áp dụng các kiểu in thường, in nghiêng, hay in xiên cho chữ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">italic</span>;} 
+<span style="color:#75715e">/* (normal, oblique) */</span>
+</code></pre></div><p><strong><code>7.3. Font-variant</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường và chế <code>small-caps</code> (chữ in hoa có kích cỡ nhỏ hơn chữ in hoa bình thường) của một font chữ.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-variant</span>: <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps;}
+</code></pre></div><p><strong><code>7.4. Font-weight</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường hay in đậm</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;}
+</code></pre></div><p><strong><code>7.5. Font-size</code></strong></p>
+<p>Được dùng để chỉnh kích thước font chữ</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;}
+</code></pre></div><p><strong><code>7.6. Rút gọn font:</code></strong></p>
+<p>Từ việc bạn viết</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {
+  <span style="color:#66d9ef">font-style</span>: <span style="color:#66d9ef">italic</span>;
+  <span style="color:#66d9ef">font-variant</span>: <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps;
+  <span style="color:#66d9ef">font-weight</span>: <span style="color:#66d9ef">bold</span>;
+  <span style="color:#66d9ef">font-size</span>: <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span>;
+  <span style="color:#66d9ef">font-family</span>: <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>;
+}
+</code></pre></div><p>thì có thể rút ngắn lại thành</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">font</span>: <span style="color:#66d9ef">italic</span> <span style="color:#66d9ef">small</span><span style="color:#f92672">-</span>caps <span style="color:#66d9ef">bold</span> <span style="color:#ae81ff">14</span><span style="color:#66d9ef">px</span> <span style="color:#960050;background-color:#1e0010">“</span>Roboto<span style="color:#960050;background-color:#1e0010">”</span>, <span style="color:#66d9ef">sans-serif</span>}
+</code></pre></div><h2 id="8-text">8. Text</h2>
+<p><strong><code>8.1. Màu chữ (color)</code></strong></p>
+<p>Để định màu chữ cho một thành phần nào đó trên trang web</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">body</span> {<span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#FFF</span>}
+</code></pre></div><p><strong><code>8.2. Text-indent</code></strong></p>
+<p>Tạo khoảng thụt đầu dòng cho dòng đầu tiên của văn bản</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span> {<span style="color:#66d9ef">text-indent</span>: <span style="color:#ae81ff">30</span><span style="color:#66d9ef">px</span>}
+</code></pre></div><p><strong><code>8.3. Text-align</code></strong></p>
+<p>Canh chỉnh văn bản cho các thành phần trong trang web. Có 4 giá trị: <code>left</code> (canh trái), <code>right</code> (canh phải), <code>center</code> (canh giữa), <code>justify</code> (canh đều).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">p</span> {<span style="color:#66d9ef">text-align</span>: <span style="color:#66d9ef">justify</span>}
+</code></pre></div><p><strong><code>8.4. Letter-spacing</code></strong></p>
+<p>Dùng để chỉnh khoảng cách giữa các ký tự trong một văn bản.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">letter-spacing</span>: <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>}
+</code></pre></div><p><strong><code>8.5. Text-decoration</code></strong>
+Thêm các hiệu ứng: <code>underline</code> (gạch chân), <code>line-through</code> (gạch xiên), <code>overline</code> (gạch đầu), <code>blink</code> (hiệu ứng nhấp nháy).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">text-decoration</span>: <span style="color:#66d9ef">overline</span>}
+</code></pre></div><p><strong><code>8.6. Text-transform</code></strong></p>
+<p>Quy định chế độ in hoa hay in thường của văn bản mà không phụ thuộc vào văn  bản gốc trên HTML. Có 4 giá trị: <code>uppercase</code> (in hoa), <code>lowercase</code> (in thường), <code>capitalize</code> (in hoa ký tự đầu tiên trong mỗi từ) và <code>none</code> (không áp dụng hiệu ứng).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#f92672">h1</span> {<span style="color:#66d9ef">text-transform</span>: <span style="color:#66d9ef">uppercase</span>}
+</code></pre></div><p>Tạm thời kết thúc phần 1 ở đây nhé. Cảm ơn mọi người đã xem bài.</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+        <p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
+            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+            <line x1="7" y1="7" x2="7" y2="7"></line>
+          </svg><span class="tag"><a href="https://hongquanhak.github.io/tags/css/">css</a></span>
+        </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        1214 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        2020-09-03
+      </p>
+    </div>
+      <hr />
+      <div class="sharing-buttons" style="display: flex">
+        
+<a class="resp-sharing-button__link" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on facebook">
+  <div class="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link" href="https://twitter.com/intent/tweet/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f" target="_blank"
+  rel="noopener" aria-label="" title="Share on twitter">
+  <div class="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path
+          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+        </path>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link" href="mailto:?subject=CSS%20C%c6%a1%20b%e1%ba%a3n%20v%c3%a0%20N%c3%a2ng%20cao%20-%20T%e1%bb%91i%20gi%e1%ba%a3n%20%28P1%29&amp;body=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f" target="_self"
+  rel="noopener" aria-label="" title="Share via email">
+  <div class="resp-sharing-button resp-sharing-button--email resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+        <polyline points="22,6 12,13 2,6"></polyline>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+<a class="resp-sharing-button__link"
+  href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f&amp;title=CSS%20C%c6%a1%20b%e1%ba%a3n%20v%c3%a0%20N%c3%a2ng%20cao%20-%20T%e1%bb%91i%20gi%e1%ba%a3n%20%28P1%29&amp;summary=CSS%20C%c6%a1%20b%e1%ba%a3n%20v%c3%a0%20N%c3%a2ng%20cao%20-%20T%e1%bb%91i%20gi%e1%ba%a3n%20%28P1%29&amp;source=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f"
+  target="_blank" rel="noopener" aria-label="" title="Share on linkedin">
+  <div class="resp-sharing-button resp-sharing-button--linkedin resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+        <rect x="2" y="9" width="4" height="12"></rect>
+        <circle cx="4" cy="4" r="2"></circle>
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+<a class="resp-sharing-button__link"
+  href="https://reddit.com/submit/?url=https%3a%2f%2fhongquanhak.github.io%2fposts%2f2020%2f09%2fcss-c%25C6%25A1-b%25E1%25BA%25A3n-v%25C3%25A0-n%25C3%25A2ng-cao-t%25E1%25BB%2591i-gi%25E1%25BA%25A3n-p1%2f&amp;resubmit=true&amp;title=CSS%20C%c6%a1%20b%e1%ba%a3n%20v%c3%a0%20N%c3%a2ng%20cao%20-%20T%e1%bb%91i%20gi%e1%ba%a3n%20%28P1%29" target="_blank"
+  rel="noopener" aria-label="" title="Share on reddit">
+  <div class="resp-sharing-button resp-sharing-button--reddit resp-sharing-button--small">
+    <div aria-hidden="true" class="resp-sharing-button__icon resp-sharing-button__icon--solid">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+        stroke="none">
+        <path
+          d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z" />
+      </svg>
+    </div>
+  </div>
+</a>
+
+
+
+
+
+
+
+
+      </div>
+
+    
+      <div class="pagination">
+        <div class="pagination__title">
+          <span class="pagination__title-h"></span>
+          <hr />
+        </div>
+
+        <div class="pagination__buttons">
+          
+
+          
+            <span class="button next">
+              <a href="https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/">
+                <span class="button__text">Lấy dữ liệu từ một API sử dụng React/Redux</span>
+                <span class="button__icon">→</span>
+              </a>
+            </span>
+          
+        </div>
+      </div>
+    
+
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2020</span>
+            
+                <span><a href="https://hongquanhak.github.io/">Quan Kuyo</a></span>
+            
+            
+                <span><a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" rel="noopener">CC BY-NC 4.0</a></span>
+            
+            <span> <a href="https://hongquanhak.github.io/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+        </div>
+    </div>
+    <div class="footer__inner">
+        <div class="footer__content">
+            
+        </div>
+    </div>
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+
+<script type="text/javascript" src="https://hongquanhak.github.io/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+
+
+
+    </body>
+</html>
