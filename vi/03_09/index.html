@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>CSS Cơ bản và Nâng cao - Tối giản (P1) - Blog about programming, english and life</title><meta name="Description" content="Blog về lập trình, tiếng anh và cuộc sống."><meta property="og:title" content="CSS Cơ bản và Nâng cao - Tối giản (P1)" />
+<meta property="og:description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/vi/03_09/" />
+<meta property="og:image" content="https://hongquanhak.github.io/images/qx.png"/>
+<meta property="article:published_time" content="2020-09-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-03T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/images/qx.png"/>
+
+<meta name="twitter:title" content="CSS Cơ bản và Nâng cao - Tối giản (P1)"/>
+<meta name="twitter:description" content="Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?"/>
+<meta name="application-name" content="QUAN KUYO">
+<meta name="apple-mobile-web-app-title" content="QUAN KUYO"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="images/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://hongquanhak.github.io/vi/03_09/" /><link rel="prev" href="https://hongquanhak.github.io/vi/26_08/" /><link rel="next" href="https://hongquanhak.github.io/vi/07_09/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "CSS Cơ bản và Nâng cao - Tối giản (P1)",
+        "inLanguage": "vi",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/hongquanhak.github.io\/vi\/03_09\/"
+        },"image": ["https:\/\/hongquanhak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "css","wordcount":  1307 ,
+        "url": "https:\/\/hongquanhak.github.io\/vi\/03_09\/","datePublished": "2020-09-03T00:00:00+00:00","dateModified": "2020-09-03T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Quan Kuyo","logo": "https:\/\/hongquanhak.github.io\/images\/qx.png"},"author": {
+                "@type": "Person",
+                "name": "Quan Kuyo"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/vi/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/vi/posts/"> Bài viết </a><a class="menu-item" href="/vi/tags/"> Thẻ </a><a class="menu-item" href="/vi/categories/"> Danh mục </a><a class="menu-item" href="/vi/about/"> Giới thiệu </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Chọn Ngôn ngữ">Vietnamese<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/03_09/">English</option><option value="/vi/03_09/" selected>Vietnamese</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Tìm tiêu đề hoặc nội dung..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Tìm kiếm">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Xoá">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Đổi chủ đề">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/vi/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Tìm tiêu đề hoặc nội dung..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Tìm kiếm">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Xoá">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Huỷ
+                    </a>
+                </div><a class="menu-item" href="/vi/posts/" title="">Bài viết</a><a class="menu-item" href="/vi/tags/" title="">Thẻ</a><a class="menu-item" href="/vi/categories/" title="">Danh mục</a><a class="menu-item" href="/vi/about/" title="">Giới thiệu</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Đổi chủ đề">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Chọn Ngôn ngữ">Vietnamese<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/03_09/">English</option><option value="/vi/03_09/" selected>Vietnamese</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">CSS Cơ bản và Nâng cao - Tối giản (P1)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/vi/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Quan Kuyo</a></span>&nbsp;<span class="post-category">trong <a href="/vi/categories/front-end/"><i class="far fa-folder fa-fw"></i>Front-end</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-09-03">2020-09-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1307 từ&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;7 phút&nbsp;</div>
+        </div><div class="content" id="content"><blockquote>
+<p><em>Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi</em></p>
+</blockquote>
+<h1 id="css-là-gì">CSS là gì?</h1>
+<ul>
+<li>Theo trang W3Schools, CSS viết tắt của Cascading Style Sheets.</li>
+<li>CSS mô tả cách các phần tử HTML được hiển thị trên màn hình hoặc các phương tiện khác.</li>
+<li>CSS giúp bạn kiểm soát bố cục của nhiều trang web cùng một lúc. Do đó nó tiết kiệm được rất nhiều thời gian cho bạn trong công việc.</li>
+</ul>
+<h2 id="1-cú-pháp-cơ-bản">1. Cú pháp cơ bản</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">Selector</span> <span class="p">{</span><span class="n">property</span><span class="p">:</span> <span class="n">value</span><span class="p">;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>Selector</strong>: đối tượng sẽ được áp dụng: VD: body, h1, h2, img, .username, #title…</p>
+<p>Ngoài viết tên selector theo class, id, tag. Chúng ta có thể viết tên selector theo phân cấp để chỉ các ảnh trong #entry. VD: #entry img.</p>
+<p>VD 1 đoạn mã về input</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">input</span> <span class="na">name </span><span class="o">=</span> <span class="s">&#34;Search&#34;</span> <span class="na">type </span><span class="o">=</span> <span class="s">&#34;text&#34;</span> <span class="na">value </span><span class="o">=</span> <span class="s">&#34;Key Word&#34;</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Để áp dụng CSS cho riêng thuộc tính tìm  kiếm này, ta dùng <code>input[name= “Search”]</code></p>
+<p>Dùng selector ảnh hưởng đến toàn trang web <code>* {color: red}</code></p>
+<p><strong>Property</strong>: các thuộc tính quy định cách trình bày: VD: background-color, font-family, color, padding,..</p>
+<p><strong>Value</strong>: giá trị của thuộc tính: VD: #FFF định màu trắng cho nền trang.</p>
+<h2 id="2-chú-thích-trong-css">2. Chú thích trong CSS</h2>
+<p>Chú thích (comment) sẽ được trình duyệt bỏ qua và không hiển thị trên trang web. Sử dụng cấu trúc <code>/*.........*/</code> ở trên 1 dòng hoặc nhiều dòng để chú thích. VD:</p>
+<pre><code>/* Style for image */
+</code></pre>
+<p>Ngoài ra để viết chú thích nhanh hơn, bạn hãy gõ đoạn text bạn cần chú thích, sau đó bôi đen và sử dụng cú pháp <code>Ctrl + /</code> để tạo chú thích.</p>
+<h2 id="3-nhúng-css-vào-html">3. Nhúng CSS vào HTML</h2>
+<p>Có 3 cách để thêm CSS vào file HTML</p>
+<ul>
+<li><strong>External CSS:</strong> viết CSS ở một file riêng, đặt tên là <code>&lt;name&gt;.css</code>, sau đó sử dụng thẻ <code>link</code> để nhúng file này vào trong phần <code>&lt;head&gt;</code> của file html.</li>
+</ul>
+<p>VD: file <code>myStyle.css</code>:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css">  <span class="nt">h1</span>
+  <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="err">background–</span><span class="k">color</span><span class="p">:</span> <span class="kc">purple</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="p">.</span><span class="nc">content</span> 
+  <span class="p">{</span>
+    <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+    <span class="err">background–</span><span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+    <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>file <code>html</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&#34;stylesheet&#34;</span> <span class="na">href</span><span class="o">=</span><span class="s">&#34;myStyle.css&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>H1 works!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span>p work!.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>Internal CSS:</strong> đặt trong mục <code>head</code> của file html, được cấu trúc bằng cặp thẻ <code>&lt;style&gt;&lt;/style&gt;</code></li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+      <span class="nt">h1</span>
+      <span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+        <span class="err">background–</span><span class="k">color</span><span class="p">:</span> <span class="kc">purple</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="p">.</span><span class="nc">content</span> 
+      <span class="p">{</span>
+        <span class="k">color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+        <span class="err">background–</span><span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+        <span class="k">text-align</span><span class="p">:</span> <span class="kc">center</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>H1 works!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;content&#34;</span><span class="p">&gt;</span>p work!.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><strong>Inline CSS:</strong> áp dụng trực tiếp vào phần tử. CSS bằng cách này không được khuyến khích, việc quản lý file sẽ rất khó nếu chỉ sử dụng <code>Inline CSS</code>, vì nó chỉ áp dụng cho một element duy nhất.</li>
+</ul>
+<p>VD: file <code>html</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:white; background–color: purple;&#34;</span><span class="p">&gt;</span>H1 work!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span> <span class="na">style</span><span class="o">=</span><span class="s">&#34;color:red; background–color: white; text-align: center;&#34;</span><span class="p">&gt;</span>p works!<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="4-đơn-vị-css">4. Đơn vị CSS:</h2>
+<p><em>Đơn vị chiều dài</em></p>
+<blockquote>
+<ul>
+<li><strong><code>%</code></strong>: phần trăm,  là đơn vị tham chiếu tỉ lệ so với một phần tử mẹ dựa vào kích thước.</li>
+<li><strong><code>in</code></strong>: inch (1 inch = 2,54 cm)</li>
+<li><strong><code>em</code></strong>: 1em tương đương với kích thước font chữ hiện hành, nếu font hiện hành có kích thước 14px thì 1em = 14px</li>
+<li><strong><code>ex</code></strong>: 1ex bằng chiều cao của chữ x hiện hành</li>
+<li><strong><code>pt</code></strong>: Point (1pt = 1/72 inch)</li>
+<li><strong><code>pc</code></strong>: Pica (1pc = 12pt)</li>
+<li><strong><code>px</code></strong>: Pixel (điểm ảnh trên màn hình máy tính)</li>
+<li><strong><code>cm</code></strong>: định nghĩa đơn vị đo bằng cm</li>
+<li><strong><code>mm</code></strong>: định nghĩa đơn vị đo bằng mm</li>
+<li><strong><code>vh</code></strong>: 1% chiều cao của khung nhìn</li>
+<li><strong><code>vw</code></strong>: 1% chiều rộng của khung nhìn</li>
+</ul>
+</blockquote>
+<h2 id="5-sự-ưu-tiên-về-vị-trí-đặt-css">5. Sự ưu tiên về vị trí đặt CSS</h2>
+<pre><code>CSS Nội tuyến &gt; CSS bên trong &gt; CSS bên ngoài &gt; CSS mặc định của trình duyệt
+</code></pre>
+<p>Thay đổi độ ưu tiên cho thuộc tính CSS:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">selector</span> <span class="p">{</span><span class="n">property</span><span class="p">:</span> <span class="n">value</span> <span class="cp">!important</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Nếu cùng một thuộc tính cho một <code>selector</code>, nếu cả 2 đều có <code>!important</code> thì cái sau được lấy.</p>
+<h2 id="6-background">6. Background</h2>
+<p><strong><code>6.1. Màu nền:</code></strong>: (background-color)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-color</span><span class="o">:</span> <span class="nt">red</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>6.2 Ảnh nền:</code></strong> 	(background-image)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-image</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="nt">avatar</span><span class="p">.</span><span class="nc">png</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>6.3 Lặp lại ảnh nền:</code></strong>	(background-repeat)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="o">+</span> <span class="nt">repeat-x</span><span class="o">:</span> <span class="c">/* Lặp lại theo phương ngang */</span>
+<span class="o">+</span> <span class="nt">repeat-y</span><span class="o">:</span> <span class="c">/* Lặp lại theo phương dọc */</span>
+<span class="o">+</span> <span class="nt">repeat</span><span class="o">:</span> <span class="c">/* Lặp lại theo 2 phương (Đây là giá trị mặc định) */</span>
+<span class="o">+</span> <span class="nt">no-repeat</span><span class="o">:</span> <span class="c">/* Không lặp lại ảnh */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>6.4.Khóa ảnh nền:</code></strong> (background-attachment)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-attachment</span><span class="o">:</span> <span class="nt">fixed</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="o">+</span> <span class="nt">scroll</span><span class="o">:</span> <span class="c">/* Ảnh nền cuộn xuống cùng nội dung trang web (Giá trị mặc định) */</span>
+<span class="o">+</span> <span class="nt">fixed</span><span class="o">:</span> <span class="c">/* Ảnh nền cố định khi cuộn nội dung trang web. */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>6.5. Định vị ảnh nền:</code></strong> (background-position)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-position</span><span class="o">:</span> <span class="nt">5cm</span> <span class="nt">2cm</span>
+<span class="c">/* Ảnh được định vị 5cm từ trái qua, 2cm từ phải qua */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Chúng ta có thể nhóm thuộc tính CSS:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background-color</span><span class="o">:</span> <span class="nt">transparent</span><span class="o">;</span>
+<span class="nt">background-image</span><span class="o">:</span> <span class="nt">url</span><span class="o">(</span><span class="nt">avatar</span><span class="p">.</span><span class="nc">png</span><span class="o">)</span>
+<span class="nt">background-repeat</span><span class="o">:</span> <span class="nt">no-repeat</span>
+<span class="nt">background-attachment</span><span class="o">:</span> <span class="nt">fixed</span>
+<span class="nt">background-position</span><span class="o">:</span> <span class="nt">right</span> <span class="nt">bottom</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>thành một dòng ngắn</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">background</span><span class="o">:</span> <span class="nt">transparent</span> <span class="nt">url</span><span class="o">(</span><span class="nt">avatar</span><span class="p">.</span><span class="nc">png</span><span class="o">)</span> <span class="nt">no-repeat</span> <span class="nt">fixed</span> <span class="nt">right</span> <span class="nt">bottom</span><span class="o">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="7-font-chữ">7. Font chữ</h2>
+<p><strong><code>7.1. Font-family</code></strong></p>
+<p>Định nghĩa danh sách ưu tiên các font sẽ được dùng để hiện thị lên trang web.
+Có hai loại font được chỉ định: <code>family-names</code> và <code>generic families</code></p>
+<pre><code>+ family-names: Tên cụ thể của font: Roboto, Arial, Time New Roman…
++ generic families: Tên của một họ gồm nhiều font: sans-serif, serif,…
+</code></pre>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="err">“</span><span class="n">Roboto</span><span class="err">”</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>7.2. Font-style</code></strong></p>
+<p>Định nghĩa việc áp dụng các kiểu in thường, in nghiêng, hay in xiên cho chữ.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">;}</span> 
+<span class="c">/* (normal, oblique) */</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>7.3. Font-variant</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường và chế <code>small-caps</code> (chữ in hoa có kích cỡ nhỏ hơn chữ in hoa bình thường) của một font chữ.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">font-variant</span><span class="p">:</span> <span class="kc">small</span><span class="o">-</span><span class="n">caps</span><span class="p">;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>7.4. Font-weight</code></strong></p>
+<p>Được dùng để chọn chế độ bình thường hay in đậm</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>7.5. Font-size</code></strong></p>
+<p>Được dùng để chỉnh kích thước font chữ</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>7.6. Rút gọn font:</code></strong></p>
+<p>Từ việc bạn viết</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span>
+  <span class="k">font-style</span><span class="p">:</span> <span class="kc">italic</span><span class="p">;</span>
+  <span class="k">font-variant</span><span class="p">:</span> <span class="kc">small</span><span class="o">-</span><span class="n">caps</span><span class="p">;</span>
+  <span class="k">font-weight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+  <span class="k">font-size</span><span class="p">:</span> <span class="mi">14</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">font-family</span><span class="p">:</span> <span class="err">“</span><span class="n">Roboto</span><span class="err">”</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>thì có thể rút ngắn lại thành</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">font</span><span class="p">:</span> <span class="kc">italic</span> <span class="kc">small</span><span class="o">-</span><span class="n">caps</span> <span class="kc">bold</span> <span class="mi">14</span><span class="kt">px</span> <span class="err">“</span><span class="n">Roboto</span><span class="err">”</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="8-text">8. Text</h2>
+<p><strong><code>8.1. Màu chữ (color)</code></strong></p>
+<p>Để định màu chữ cho một thành phần nào đó trên trang web</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span><span class="k">color</span><span class="p">:</span> <span class="mh">#FFF</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>8.2. Text-indent</code></strong></p>
+<p>Tạo khoảng thụt đầu dòng cho dòng đầu tiên của văn bản</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">p</span> <span class="p">{</span><span class="k">text-indent</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>8.3. Text-align</code></strong></p>
+<p>Canh chỉnh văn bản cho các thành phần trong trang web. Có 4 giá trị: <code>left</code> (canh trái), <code>right</code> (canh phải), <code>center</code> (canh giữa), <code>justify</code> (canh đều).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">p</span> <span class="p">{</span><span class="k">text-align</span><span class="p">:</span> <span class="kc">justify</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>8.4. Letter-spacing</code></strong></p>
+<p>Dùng để chỉnh khoảng cách giữa các ký tự trong một văn bản.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">letter-spacing</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>8.5. Text-decoration</code></strong></p>
+<p>Thêm các hiệu ứng: <code>underline</code> (gạch chân), <code>line-through</code> (gạch xiên), <code>overline</code> (gạch đầu), <code>blink</code> (hiệu ứng nhấp nháy).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">text-decoration</span><span class="p">:</span> <span class="kc">overline</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>8.6. Text-transform</code></strong></p>
+<p>Quy định chế độ in hoa hay in thường của văn bản mà không phụ thuộc vào văn  bản gốc trên HTML. Có 4 giá trị: <code>uppercase</code> (in hoa), <code>lowercase</code> (in thường), <code>capitalize</code> (in hoa ký tự đầu tiên trong mỗi từ) và <code>none</code> (không áp dụng hiệu ứng).</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-css" data-lang="css"><span class="nt">h1</span> <span class="p">{</span><span class="k">text-transform</span><span class="p">:</span> <span class="kc">uppercase</span><span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Tạm thời kết thúc phần 1 ở đây nhé. Cảm ơn mọi người đã xem bài.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Cập nhật ngày 2020-09-03</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vi/03_09/index.md" target="_blank">Đọc với định dạng Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Chia sẻ trên Twitter" data-sharer="twitter" data-url="https://hongquanhak.github.io/vi/03_09/" data-title="CSS Cơ bản và Nâng cao - Tối giản (P1)" data-via="hongquanhak1" data-hashtags="css"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Facebook" data-sharer="facebook" data-url="https://hongquanhak.github.io/vi/03_09/" data-hashtag="css"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Linkedin" data-sharer="linkedin" data-url="https://hongquanhak.github.io/vi/03_09/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Reddit" data-sharer="reddit" data-url="https://hongquanhak.github.io/vi/03_09/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/vi/tags/css/">css</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Quay lại</a></span>&nbsp;|&nbsp;<span><a href="/vi/">Trang chủ</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/vi/26_08/" class="prev" rel="prev" title="Lấy dữ liệu từ một API sử dụng React/Redux"><i class="fas fa-angle-left fa-fw"></i>Lấy dữ liệu từ một API sử dụng React/Redux</a>
+            <a href="/vi/07_09/" class="next" rel="next" title="9 dự án bạn có thể làm để trở thành một chuyên gia Front-end trong năm 2020">9 dự án bạn có thể làm để trở thành một chuyên gia Front-end trong năm 2020<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="fb-root" class="comment"></div>
+            <div
+                class="fb-comments"
+                data-href="https://hongquanhak.github.io/vi/03_09/"
+                data-width="100%"
+                data-numposts="10"
+            ></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://developers.facebook.com/docs/plugins/comments/"></a>Facebook</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/vi/" target="_blank">Quan Kuyo</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Lên trên">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="Xem bình luận">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://connect.facebook.net/vi/sdk.js#xfbml=1&amp;version=v5.0&amp;appId=&amp;autoLogAppEvents=1" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.vi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Sao chép vào bộ nhớ tạm","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/vi/index.json","lunrLanguageCode":"vi","maxResultLength":10,"noResultsFound":"Không tìm thấy","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

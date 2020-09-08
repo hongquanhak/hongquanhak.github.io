@@ -1,25 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>blog on QUAN KUYO</title>
-    <link>https://hongquanhak.github.io/tags/blog/</link>
-    <description>Recent content in blog on QUAN KUYO</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 24 Aug 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hongquanhak.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
-      <link>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</link>
-      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</guid>
-      <description>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.</description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>blog - Tag - Blog about programming, english and life</title>
+        <link>https://hongquanhak.github.io/tags/blog/</link>
+        <description>blog - Tag - Blog about programming, english and life</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 24 Aug 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://hongquanhak.github.io/tags/blog/" rel="self" type="application/rss+xml" /><item>
+    <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
+    <link>https://hongquanhak.github.io/24_08/</link>
+    <pubDate>Mon, 24 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://hongquanhak.github.io/24_08/</guid>
+    <description><![CDATA[Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.]]></description>
+</item></channel>
 </rss>

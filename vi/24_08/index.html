@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không? - Blog about programming, english and life</title><meta name="Description" content="Blog về lập trình, tiếng anh và cuộc sống."><meta property="og:title" content="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?" />
+<meta property="og:description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/vi/24_08/" />
+<meta property="og:image" content="https://hongquanhak.github.io/images/qx.png"/>
+<meta property="article:published_time" content="2020-08-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-24T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/images/qx.png"/>
+
+<meta name="twitter:title" content="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?"/>
+<meta name="twitter:description" content="Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình."/>
+<meta name="application-name" content="QUAN KUYO">
+<meta name="apple-mobile-web-app-title" content="QUAN KUYO"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="images/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://hongquanhak.github.io/vi/24_08/" /><link rel="next" href="https://hongquanhak.github.io/vi/26_08/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?",
+        "inLanguage": "vi",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/hongquanhak.github.io\/vi\/24_08\/"
+        },"image": ["https:\/\/hongquanhak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "hugo, blog","wordcount":  1173 ,
+        "url": "https:\/\/hongquanhak.github.io\/vi\/24_08\/","datePublished": "2020-08-24T00:00:00+00:00","dateModified": "2020-08-24T00:00:00+00:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Quan Kuyo","logo": "https:\/\/hongquanhak.github.io\/images\/qx.png"},"author": {
+                "@type": "Person",
+                "name": "Quan Kuyo"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/vi/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/vi/posts/"> Bài viết </a><a class="menu-item" href="/vi/tags/"> Thẻ </a><a class="menu-item" href="/vi/categories/"> Danh mục </a><a class="menu-item" href="/vi/about/"> Giới thiệu </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Chọn Ngôn ngữ">Vietnamese<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/24_08/">English</option><option value="/vi/24_08/" selected>Vietnamese</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Tìm tiêu đề hoặc nội dung..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Tìm kiếm">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Xoá">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Đổi chủ đề">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/vi/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Tìm tiêu đề hoặc nội dung..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Tìm kiếm">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Xoá">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Huỷ
+                    </a>
+                </div><a class="menu-item" href="/vi/posts/" title="">Bài viết</a><a class="menu-item" href="/vi/tags/" title="">Thẻ</a><a class="menu-item" href="/vi/categories/" title="">Danh mục</a><a class="menu-item" href="/vi/about/" title="">Giới thiệu</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Đổi chủ đề">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Chọn Ngôn ngữ">Vietnamese<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/24_08/">English</option><option value="/vi/24_08/" selected>Vietnamese</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/vi/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Quan Kuyo</a></span>&nbsp;<span class="post-category">trong <a href="/vi/categories/blog/"><i class="far fa-folder fa-fw"></i>Blog</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-24">2020-08-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;1173 từ&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;6 phút&nbsp;</div>
+        </div><div class="content" id="content"><blockquote>
+<p><em>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình. Tại sao chỉ từ A đến X, vì mình muốn để Z cho bạn tự trải nghiệm</em></p>
+</blockquote>
+<h2 id="tại-sao-chọn-hugo">Tại sao chọn Hugo?</h2>
+<p>Hugo là một nền tảng giúp bạn xây dựng một trang web tĩnh tích hợp sẵn với github được viết bằng ngôn ngữ <code>Golang</code> (con ruột của Google) và sử dụng <code>markdown</code> (file .md) để viết bài. Link dành cho bạn nào chưa biết về <code>markdown</code> <a href="https://quantrimang.com/cu-phap-markdown-can-ban-163963" target="_blank" rel="noopener noreffer">tại đây</a>. Vậy tại sao mình lại sử dụng Hugo để tạo blog?</p>
+<p> <strong>Ưu điểm</strong>:</p>
+<ul>
+<li>Tốc độ build trang web nhanh <br></li>
+<li>Không có cơ sở dữ liệu, plugin không yêu cầu bất cứ quyền nào, không lo ngại về bảo mật.</li>
+<li>Không có quá nhiều thứ phải tìm hiểu để bắt đầu.</li>
+</ul>
+<p> <strong>Nhược điểm</strong>:</p>
+<ul>
+<li>Chắc là bạn phải biết chút ít về lập trình thì sẽ dễ dàng hơn.</li>
+</ul>
+<p>Nào, bây giờ vào vấn đề chính, cùng tạo ra một trang web cho chính mình để khoe với bạn bè nào.</p>
+<h2 id="1cài-đặt-hugo-trên-window">1.	Cài đặt Hugo trên Window</h2>
+<p>Vì mình đang dùng Window nên mình sẽ hướng dẫn cài đặt ở trên Window thôi nhé.</p>
+<p>Link tải: <a href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener noreffer">Hugo -&gt; chọn phiên bản Windows-64bit</a></p>
+<p>Tải về -&gt; giải nén vào thư mục bất kỳ.</p>
+<p>Vào Control Panel -&gt; System and Security -&gt; System -&gt; Advanced system settings -&gt; Tab “Advanced” và cài đặt như hình.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/01.png"
+        data-srcset="/images/24-08/01.png, /images/24-08/01.png 1.5x, /images/24-08/01.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/01.png"
+        title="01" /></p>
+<p>Mở <code>cmd</code> và gõ lệnh <code>hugo version</code>. Nếu hiển thị dòng “Hugo Static Site Generator…” thì có nghĩa là bạn đã cài Hugo thành công.
+Okeee, vậy là đã xong bước đầu tiên trong hành trình tạo blog cá nhân, tiếp theo chúng ta sẽ …..</p>
+<h2 id="2tạo-thư-mục-mà-bạn-lưu-source-code-dưới-local">2.	Tạo thư mục mà bạn lưu source code dưới local.</h2>
+<p>Chọn một thư mục bất kì và gọi <code>cmd</code>. Ở đây mình sẽ tạo thư mục <code>QuanBlog</code> ở ổ đĩa F bằng cách vào ổ F, gọi cmd và sử dụng lệnh <code>hugo new site QuanBlog</code>. Tận hưởng thành quả…tadaaa.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/031.png"
+        data-srcset="/images/24-08/031.png, /images/24-08/031.png 1.5x, /images/24-08/031.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/031.png"
+        title="031" /></p>
+<h2 id="3chọn-theme-cho-blog-của-bạn">3.	Chọn theme cho blog của bạn.</h2>
+<p>Hugo cung cấp một kho theme cho bạn tha hồ lựa chọn ở <a href="https://themes.gohugo.io/." target="_blank" rel="noopener noreffer">https://themes.gohugo.io/.</a></p>
+<p>Ở bài viết này, mình sẽ sử dụng theme <strong><code>Hello Friend NG</code></strong> để làm theme chính cho blog. Yia, tải về và cấu hình thoai.</p>
+<ul>
+<li>Chọn theme và clone về thư mục blog hoặc tải file zip về sau đó giải nén và copy vào thư mục <code>themes</code> của bạn.</li>
+</ul>
+<p>Mở <code>cmd</code> và clone: <code>git clone https://github.com/rhazdon/hugo-theme-hello-friend-ng.git themes/hello-friend-ng</code></p>
+<p>Sau đó bạn vào thư mục <code>exampleSite</code> của theme mà bạn vừa tải về, copy và ghì đè toàn bộ những gì có trong đó ra ngoài thư mục chính của bạn (Bao gồm thư mục content, resources và file config.toml).</p>
+<p>Mở <code>cmd</code> lên và gõ lệnh <code>hugo server</code>, vào trình duyệt và gõ <code>localhost:1313</code>. Tadaaa…Các bạn sẽ được kết quả như này.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/02.png"
+        data-srcset="/images/24-08/02.png, /images/24-08/02.png 1.5x, /images/24-08/02.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/02.png"
+        title="02" /></p>
+<h2 id="4thử-viết-một-bài-chào-sân-chơi-mới-nào">4.	Thử viết một bài chào sân chơi mới nào.</h2>
+<p>Vào editor yêu thích của bạn để gõ vài dòng code nhé. Mình thì mình sử dụng <code>Visual Studio Code</code> để thực hiện nhiệm vụ này :D</p>
+<p>Các bạn sẽ thấy trong thư mục <code>content</code> có mục <code>posts</code> và các file như thế này. Xóa những bài viết mặc định của theme này và sẽ tạo bài viết mới nhé.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/03.png"
+        data-srcset="/images/24-08/03.png, /images/24-08/03.png 1.5x, /images/24-08/03.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/03.png"
+        title="03" /></p>
+<p>Bật <code>terminal</code>, gõ <code>hugo new posts/hello.md</code>. Trong đó <code>posts</code> là thư mục <code>posts</code>, <code>hello.md</code> là file để viết bài. Các bạn cấu hình lại như sau.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/04.png"
+        data-srcset="/images/24-08/04.png, /images/24-08/04.png 1.5x, /images/24-08/04.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/04.png"
+        title="04" /></p>
+<p>Quay lại trình duyệt và check thử xem như nào…</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/05.png"
+        data-srcset="/images/24-08/05.png, /images/24-08/05.png 1.5x, /images/24-08/05.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/05.png"
+        title="05" /></p>
+<p>Ok rồi nè, tiếp theo….</p>
+<h2 id="5deploy-lên-gihub-để-gửi-link-sang-khoe-với-bạn-bè-hay-bạn-bồ-nào">5.	Deploy lên gihub để gửi link sang khoe với bạn bè hay bạn bồ nào.</h2>
+<p>Trước tiên vào <code>github</code> tạo một cái <code>repository</code> để chứa <code>source code</code> và đặt tên theo cấu trúc như này để làm tên miền cho trang blog của mình luôn.
+<code>&lt;username&gt;.github.io</code></p>
+<p>Còn nếu đặt một tên khác, ví dụ như đặt repository là Myblog thì sau này muốn vào trang Blog của bạn, bạn phải gõ <code>&lt;username&gt;.github.io/Myblog</code>.</p>
+<p>Chọn <code>Public</code> để được được kích hoạt Github Pages nhé. Tích vào ô <code>Initialize this repository</code>… Sau đó <code>Create repository thôi</code>.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/06.png"
+        data-srcset="/images/24-08/06.png, /images/24-08/06.png 1.5x, /images/24-08/06.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/06.png"
+        title="06" /></p>
+<p>Ok, bước tiếp theo mình sẽ kết nối giữa <code>repository</code> trên <code>git</code> và <code>repository</code> dưới <code>local</code> của mình (là thư mục QuanBlog), mục đích là để nó nhận ra là cùng chung một nhà với nhau, để lát <code>push</code> được <code>source code</code> dưới <code>local</code> lên. Mình sẽ chỉ đẩy code ở thư mục <code>public</code> lên (thư mục này <code>generate source code</code> của mình ra <code>html</code> để hiển thị lên web). Nếu các bạn không thấy thư mục này thì vào thư mục chính gọi <code>cmd</code> và nhập lệnh <code>hugo</code> nhé. Sau đó vào thư mục <code>public</code> và <code>remote repo</code> trên git về.</p>
+<ul>
+<li>git init <br></li>
+<li>git remote add origin <a href="https://github.com/hongquanhak/hongquanhak.github.io.git">https://github.com/hongquanhak/hongquanhak.github.io.git</a></li>
+</ul>
+<p>Commit và push code lên github thôi nào.</p>
+<ul>
+<li>git add .</li>
+<li>git commit -m “first commit”</li>
+<li>git push -u origin master (git push -f orgin master)</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/07.png"
+        data-srcset="/images/24-08/07.png, /images/24-08/07.png 1.5x, /images/24-08/07.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/07.png"
+        title="07" /></p>
+<p>Vào kiểm tra trong <code>repository</code> thấy như này là bạn đã push code thành công rồi đấy. Tiếp theo vào <code>Settings</code>, ở trong mục <code>Options</code>, kéo xuống phía dưới mục <code>GitHub Pages</code> và bạn sẽ thấy như ảnh dưới đây, nghĩa là bạn đã có thể sử dụng trang web rồi.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/08.png"
+        data-srcset="/images/24-08/08.png, /images/24-08/08.png 1.5x, /images/24-08/08.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/08.png"
+        title="08" /></p>
+<p>Tèn tén, háo hức quá, vào kiểm tra trang web của mình nào.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/09.png"
+        data-srcset="/images/24-08/09.png, /images/24-08/09.png 1.5x, /images/24-08/09.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/09.png"
+        title="09" /></p>
+<p>Nhưng mà, ối, tại sao nó lại ra như thế này, huhu. Đừng quá lo lắng, chúng ta sẽ giải quyết nhanh thôi mà. Hãy quay lại source code của bạn, vào file <code>config.toml</code> (ở folder chính chứ không phải trong folder theme nhé). Sửa dòng <code>baseURL = “https://hongquanhak.github.io/”</code>. Nghĩa là trỏ tới trang web của bạn.</p>
+<p>Sau đó bật terminal lên nhập lệnh <code>hugo</code> để nó <code>generate</code> sang thư mục <code>public</code>. Cuối cùng vào thư mục <code>public</code> và <code>git add .</code> -&gt; <code>git commit -m “gì gì đó”</code>  -&gt;<code> git push origin master</code></p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/10.png"
+        data-srcset="/images/24-08/10.png, /images/24-08/10.png 1.5x, /images/24-08/10.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/10.png"
+        title="10" /></p>
+<p>Đợi tầm 10s để github cập nhật lại trạng thái và cuối cùng, chần chừ gì nữa mà không bật trang web của mình và tận hưởng thành quả…</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/24-08/11.png"
+        data-srcset="/images/24-08/11.png, /images/24-08/11.png 1.5x, /images/24-08/11.png 2x"
+        data-sizes="auto"
+        alt="/images/24-08/11.png"
+        title="11" /></p>
+<p>Okey, vậy là xong rồi đó, muốn chỉnh sửa thêm thì các bạn vào file <code>config.toml</code> để sửa theo ý muốn của mình và có thể tìm hiểu thêm về <code>golang</code> để vọc vạch nhiều trò hơn trên trang blog nhé. Chúc các bạn có một trang blog thật hịn &lt;3</p>
+<p>P/s: À mà nữa, nên tạo thêm một cái repository trên github và để ở chế độ <code>Private</code> xong rồi push toàn bộ source code của mình lên đấy để lỡ sau này có mất file thì còn <code>clone</code> trên git về và tái sử dụng được nhé.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Cập nhật ngày 2020-08-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/vi/24_08/index.md" target="_blank">Đọc với định dạng Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Chia sẻ trên Twitter" data-sharer="twitter" data-url="https://hongquanhak.github.io/vi/24_08/" data-title="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?" data-via="hongquanhak1" data-hashtags="hugo,blog"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Facebook" data-sharer="facebook" data-url="https://hongquanhak.github.io/vi/24_08/" data-hashtag="hugo"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Linkedin" data-sharer="linkedin" data-url="https://hongquanhak.github.io/vi/24_08/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Chia sẻ trên Reddit" data-sharer="reddit" data-url="https://hongquanhak.github.io/vi/24_08/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/vi/tags/hugo/">hugo</a>,&nbsp;<a href="/vi/tags/blog/">blog</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Quay lại</a></span>&nbsp;|&nbsp;<span><a href="/vi/">Trang chủ</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/vi/26_08/" class="next" rel="next" title="Lấy dữ liệu từ một API sử dụng React/Redux">Lấy dữ liệu từ một API sử dụng React/Redux<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="fb-root" class="comment"></div>
+            <div
+                class="fb-comments"
+                data-href="https://hongquanhak.github.io/vi/24_08/"
+                data-width="100%"
+                data-numposts="10"
+            ></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://developers.facebook.com/docs/plugins/comments/"></a>Facebook</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/vi/" target="_blank">Quan Kuyo</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Lên trên">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="Xem bình luận">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://connect.facebook.net/vi/sdk.js#xfbml=1&amp;version=v5.0&amp;appId=&amp;autoLogAppEvents=1" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.vi.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Sao chép vào bộ nhớ tạm","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/vi/index.json","lunrLanguageCode":"vi","maxResultLength":10,"noResultsFound":"Không tìm thấy","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Lấy dữ liệu từ một API sử dụng React/Redux - Blog about programming, english and life</title><meta name="Description" content="Blog about programming, english and life"><meta property="og:title" content="Lấy dữ liệu từ một API sử dụng React/Redux" />
+<meta property="og:description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://hongquanhak.github.io/26_08/" />
+<meta property="og:image" content="https://hongquanhak.github.io/images/qx.png"/>
+<meta property="article:published_time" content="2020-08-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-09-04T23:56:48+07:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://hongquanhak.github.io/images/qx.png"/>
+
+<meta name="twitter:title" content="Lấy dữ liệu từ một API sử dụng React/Redux"/>
+<meta name="twitter:description" content="Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn."/>
+<meta name="application-name" content="QUAN KUYO">
+<meta name="apple-mobile-web-app-title" content="QUAN KUYO"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="images/favicon.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://hongquanhak.github.io/26_08/" /><link rel="prev" href="https://hongquanhak.github.io/24_08/" /><link rel="next" href="https://hongquanhak.github.io/03_09/" /><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.7.2/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Lấy dữ liệu từ một API sử dụng React/Redux",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https:\/\/hongquanhak.github.io\/26_08\/"
+        },"image": ["https:\/\/hongquanhak.github.io\/images\/Apple-Devices-Preview.png"],"genre": "posts","keywords": "react, redux, fetch api","wordcount":  2493 ,
+        "url": "https:\/\/hongquanhak.github.io\/26_08\/","datePublished": "2020-08-26T00:00:00+00:00","dateModified": "2020-09-04T23:56:48+07:00","license": "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.","publisher": {
+            "@type": "Organization",
+            "name": "Quan Kuyo","logo": "https:\/\/hongquanhak.github.io\/images\/qx.png"},"author": {
+                "@type": "Person",
+                "name": "Quan Kuyo"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/about/"> About </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item language" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                        <select class="language-select" id="language-select-desktop" onchange="location = this.value;"><option value="/26_08/" selected>English</option><option value="/vi/26_08/">Vietnamese</option></select>
+                    </a><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Blog about programming, english and life"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="/images/qx.png"
+        data-srcset="/images/qx.png, /images/qx.png 1.5x, /images/qx.png 2x"
+        data-sizes="auto"
+        alt="/images/qx.png"
+        title="/images/qx.png" />Quan Kuyo</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/about/" title="">About</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a><a href="javascript:void(0);" class="menu-item" title="Select Language">English<i class="fas fa-chevron-right fa-fw"></i>
+                    <select class="language-select" onchange="location = this.value;"><option value="/26_08/" selected>English</option><option value="/vi/26_08/">Vietnamese</option></select>
+                </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><article class="page single"><h1 class="single-title animated flipInX">Lấy dữ liệu từ một API sử dụng React/Redux</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Quan Kuyo</a></span>&nbsp;<span class="post-category">included in <a href="/categories/react/"><i class="far fa-folder fa-fw"></i>React</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2020-08-26">2020-08-26</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;2493 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;12 minutes&nbsp;</div>
+        </div><div class="content" id="content"><blockquote>
+<p><em>Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.</em></p>
+</blockquote>
+<h3 id="nguồn-bài-viết-fetching-data-from-an-api-using-reactreduxhttpsdevtomarkusclausfetching-data-from-an-api-using-reactredux-55ao"><em>Nguồn bài viết: <a href="https://dev.to/markusclaus/fetching-data-from-an-api-using-reactredux-55ao" target="_blank" rel="noopener noreffer">Fetching data from an api using React/Redux</a></em></h3>
+<h2 id="bắt-đầu">Bắt đầu</h2>
+<p>Tôi quyết định chia sẻ một số kiến thức mà tôi đã thu được thông qua việc mắc sai lầm mà bạn cũng có thể mắc phải. Mọi thứ tôi viết ở đây tôi đều học được bằng cách đọc những bài viết trên blog, cố gắng hiểu những gì đã làm được và <code>“trial and error”</code> (đây là cách hoàn thành công việc bằng việc dùng phép thử thông qua những phương pháp khác nhau cho đến khi tìm được phương pháp đúng).</p>
+<p>Bây giờ, những điều đầu tiên là bạn cần làm là cài đặt <strong><code>React</code></strong> và <strong><code>Redux</code></strong>. Tôi giả sử là bạn đã biết cách cài đặt chúng. Sau đó, bạn sẽ thiết lập ứng dụng <strong><code>React</code></strong> của bạn, bạn cần cài đặt một công cụ được gọi là <strong><code>redux-thunk</code></strong> bằng cách sử dụng lệnh <code>“npm install redux-thunk”</code>.</p>
+<p>Với tất cả những gì đã được cài đặt, giờ đây chúng ta có thể xem xét những <strong>Component</strong> mà chúng ta sẽ cần để biến những điều kì diệu thành hiện thực!</p>
+<h2 id="thunk-là-cái-gì-vậy">Thunk là cái gì vậy?</h2>
+<p>Về cơ bản, <strong><code>thunk</code></strong> là một function được gọi bởi một function khác. Chờ đã… Cái gì? Vâng, đó là cách mà tôi đã phản ứng khi lần đầu tiên tôi nghe tới điều này. Hãy để tôi cho bạn xem một ví dụ:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">some_function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// do something
+</span><span class="c1"></span>    <span class="k">return</span> <span class="kd">function</span> <span class="nx">thunk</span><span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// do something thunky later
+</span><span class="c1"></span>    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Như vậy, <strong><code>some_function</code></strong> được gọi, nó làm một vài việc và sau đó trả về một hàm mới với các câu lệnh và có thể là các dữ liệu dùng cho sau này.</p>
+<h2 id="vậy-còn-redux-thì-sao"><strong>Vậy còn Redux thì sao?</strong></h2>
+<p>Tôi không muốn đào sâu về <strong><code>Redux</code></strong> (chính xác hơn là tôi không thể). Vì vậy, lời giải thích ngắn gọn chỉ là: Nó là nơi chứa đựng các <strong><code>state</code></strong> trong ứng dụng <strong><code>javascript</code></strong>. Nó giữ tất cả những dữ liệu bạn cần trong ứng dụng của bạn ở một nơi. Mọi <strong><code>component</code></strong> trong ứng dụng của bạn đều có không gian ở trong vùng chứa <strong><code>state</code></strong> nơi mà bạn tìm kiếm dữ liệu. Khi dữ liệu được thay đổi thì <strong><code>component</code></strong> cũng sẽ thay đổi theo.</p>
+<h2 id="actions"><strong>Actions</strong></h2>
+<p>Ý tưởng là bạn gửi các <strong><code>action</code></strong> lên <strong><code>redux</code></strong> và dựa trên những <strong><code>action</code></strong> đó, <strong><code>state</code></strong> được thay đổi.
+Điều buồn cười là: Một <strong><code>action</code></strong> không được làm bất cứ thứ gì, nghe thì có vẻ như có những thứ đang diễn ra, nhưng thực ra là không có. Một <strong><code>action</code></strong> chỉ đơn giản là một đối tượng với một <strong><code>type key</code></strong>. Như thế này:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// this is an action
+</span><span class="c1"></span><span class="p">{</span>
+    <span class="nx">type</span><span class="o">:</span> <span class="s2">&#34;SOME_ACTION&#34;</span><span class="p">,</span>
+    <span class="nx">payload</span><span class="o">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Hầu hết thời gian bạn không muốn viết đi viết lại cùng một đối tượng, vì thế có một khái niệm được gọi là <strong><code>Action Creators</code></strong>.</p>
+<h2 id="action-creators">Action Creators.</h2>
+<p><strong><code>Action Creators</code></strong> thực hiện chính xác những gì mà chúng nghe, chúng tạo ra những đối tượng action cho bạn.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">const</span> <span class="nx">SOME_ACTION</span> <span class="o">=</span> <span class="s2">&#34;SOME_ACTION&#34;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">create_action</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">SOME_ACTION</span><span class="p">,</span>
+        <span class="nx">payload</span><span class="o">:</span> <span class="nx">data</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Vì vậy với những <strong><code>action creators</code></strong> đó, bạn có thể dễ dàng sử dụng <code>SOME_ACTION</code> ngay bây giờ bằng cách gọi <code>create_action(data)</code>. Những action creators đó có thể được gửi lên <strong><code>redux</code></strong> bằng cách sử dụng <code>dispatch(create_action(data))</code>.</p>
+<h2 id="reducers">Reducers</h2>
+<p>Sau khi một <strong><code>action</code></strong> được gửi lên, nó sẽ được truyền vào một cái gọi là <strong><code>Reducer</code></strong>. Một <strong><code>reducer</code></strong> là một hàm chức năng được đưa ra một <strong><code>state</code></strong> và một <strong><code>action</code></strong>. Tùy vào <strong><code>action</code></strong> mà nó sẽ biến đổi <strong><code>state</code></strong> và sau đó sẽ trả về một <strong><code>state</code></strong> mới.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">someReducer</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nx">SOME_ACTION</span><span class="o">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+                <span class="nx">data</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span>
+            <span class="p">}</span>
+        <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">default</span><span class="o">:</span>
+            <span class="c1">// the dispatched action is not in this reducer, return the state unchanged
+</span><span class="c1"></span>            <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Những ứng dụng phức tạp hơn rất có thể có 2 <strong><code>reducer</code></strong>, mỗi một <strong><code>reducer</code></strong> sẽ chịu trách nhiệm cho một phần của <strong><code>state</code></strong>. Vì vậy, điều quan trọng là không bao giờ được phép quên trường hợp mặc định (là trường hợp mà <strong><code>reducer</code></strong> trả về <strong><code>state</code></strong> chưa được thay đổi).
+Điều quan trọng cần lưu ý rằng các <strong><code>reducer</code></strong> là các hàm thuần khiết. Chúng không bao giờ gọi một cái gì đó giống như <strong><code>API</code></strong> hoặc gửi một <strong><code>action</code></strong> khác tới <strong><code>redux</code></strong>.</p>
+<h2 id="bạn-đã-nói-về-thunks-chưa">Bạn đã nói về thunks chưa?</h2>
+<p>Bạn đã nhớ điều đó. Okay, nói về <strong><code>thunks</code></strong> một lần nữa. Tôi chỉ đề cập đến <strong><code>reducers</code></strong> là thuần khiết. Nhưng thường thì chúng ta muốn có một loại lệnh gọi <strong><code>API</code></strong> hoặc gửi một cái gì đó tùy thuộc vào dữ liệu hoặc bất cứ cái gì… Nhưng chúng ta không thể… <strong><code>reducers</code></strong> là thuần khiết… <strong><code>Redux-Thunk</code></strong> sẽ làm điều đó.</p>
+<p><strong><code>Redux-Thunk</code></strong> khá dễ hiểu. Nó được coi như là một đoạn mã trung gian cho <strong><code>redux store</code></strong>. Nó xem xét mọi <strong><code>action</code></strong> đơn lẻ được gửi đi và nếu nó là một hàm, nó sẽ gọi cái hàm đó. Nhưng điều này mở ra một thế giới hoàn toàn mới của những “<strong><code>action</code></strong>” lạ mắt được gửi đến <strong><code>redux</code></strong>.
+Bạn có thắc mắc, làm thế nào tôi nhận được điều kì diệu nhỏ này vào <strong><code>store</code></strong> của tôi?</p>
+<h2 id="hãy-lấy-một-số-products">Hãy lấy một số products</h2>
+<p>Chúng ta muốn nạp một số <strong><code>product</code></strong> từ <strong><code>API</code></strong> của chúng ta. Để làm điều này, đầu tiên chúng ta thiết lập <strong><code>component</code></strong> trong một số loại <strong><code>state</code></strong> đang chờ xử lý, chúng ta hiển thị một cái gọi là <strong><code>loading spinner</code></strong> hay một cái gì đó tương tự. Sau đó, chúng ta tải dữ liệu và quyết định xem chúng ta có thể hiển thị danh sách <strong><code>product</code></strong> được hay không hoặc hiển thị một số loại thông báo lỗi.
+Chúng ta bắt đầu thiết lập <strong><code>action creators.</code></strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// action.js
+</span><span class="c1"></span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">FETCH_PRODUCTS_PENDING</span> <span class="o">=</span> <span class="s1">&#39;FETCH_PRODUCTS_PENDING&#39;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">FETCH_PRODUCTS_SUCCESS</span> <span class="o">=</span> <span class="s1">&#39;FETCH_PRODUCTS_SUCCESS&#39;</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">FETCH_PRODUCTS_ERROR</span> <span class="o">=</span> <span class="s1">&#39;FETCH_PRODUCTS_ERROR&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">fetchProductsPending</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">FETCH_PRODUCTS_PENDING</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fetchProductsSuccess</span><span class="p">(</span><span class="nx">products</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">FETCH_PRODUCTS_SUCCESS</span>
+        <span class="nx">products</span><span class="o">:</span> <span class="nx">products</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fetchProductsError</span><span class="p">(</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="nx">FETCH_PRODUCTS_ERROR</span>
+        <span class="nx">error</span><span class="o">:</span> <span class="nx">error</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Bây giờ chúng ta đã có <strong><code>action creators</code></strong>, hãy thiết lập <strong><code>reducer</code></strong> cho toàn bộ.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// reducer.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">FETCH_PRODUCTS_PENDING</span><span class="p">,</span> <span class="nx">FETCH_PRODUCTS_SUCCESS</span><span class="p">,</span> <span class="nx">FETCH_PRODUCTS_ERROR</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;./actions&#39;</span><span class="p">;</span>
+
+<span class="kr">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">pending</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">products</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="kc">null</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kd">function</span> <span class="nx">productsReducer</span><span class="p">(</span><span class="nx">state</span> <span class="o">=</span> <span class="nx">initialState</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nx">FETCH_PRODUCTS_PENDING</span><span class="o">:</span> 
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+                <span class="nx">pending</span><span class="o">:</span> <span class="kc">true</span>
+            <span class="p">}</span>
+        <span class="k">case</span> <span class="nx">FETCH_PRODUCTS_SUCCESS</span><span class="o">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+                <span class="nx">pending</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">products</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">payload</span>
+            <span class="p">}</span>
+        <span class="k">case</span> <span class="nx">FETCH_PRODUCTS_ERROR</span><span class="o">:</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="p">...</span><span class="nx">state</span><span class="p">,</span>
+                <span class="nx">pending</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="nx">error</span><span class="o">:</span> <span class="nx">action</span><span class="p">.</span><span class="nx">error</span>
+            <span class="p">}</span>
+        <span class="k">default</span><span class="o">:</span> 
+            <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">getProducts</span> <span class="o">=</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">products</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">getProductsPending</span> <span class="o">=</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">pending</span><span class="p">;</span>
+<span class="kr">export</span> <span class="kr">const</span> <span class="nx">getProductsError</span> <span class="o">=</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">error</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Okay, bây giờ chúng ta có một phần lớn công việc được thực hiện.
+Những điều cần lưu ý trong đoạn code trên là ba hàm ở cuối <strong><code>reducer</code></strong>. Chúng được gọi là các <strong><code>selector</code></strong>. Các <strong><code>Selector</code></strong> được sử dụng để lấy các phần được định nghĩa của <strong><code>state</code></strong>.</p>
+<p>Trong những ứng dụng nhỏ, chúng thực sự cần thiết. Nhưng nếu bạn mở rộng quy mô ứng dụng của mình và nó càng ngày càng phức tạp hơn, nó sẽ thực sự lộn xộn nếu bạn thay đổi một cái gì đó trong <strong><code>state</code></strong> của bạn. 
+Tôi chắc chắn sẽ làm một bài blog về các <strong><code>selector</code></strong>, bởi vì tôi nghĩ rằng chúng thực sự quan trọng để thiết lập một ứng dụng <strong><code>react/redux</code></strong> có thể mở rộng.</p>
+<p>Chúng ta đang ở đâu… À vâng, một phần lớn công việc đã hoàn thành. Điều duy nhất còn lại cho chúng ta để làm về phía <strong><code>redux</code></strong> là viết một trong những <strong><code>action</code></strong> mới.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="c1">// fetchProducts.js
+</span><span class="c1"></span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">fetchProductsPending</span><span class="p">,</span> <span class="nx">fetchProductsSuccess</span><span class="p">,</span> <span class="nx">fetchProductsError</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;actions&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">fetchProducts</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">dispatch</span> <span class="p">=&gt;</span> <span class="p">{</span>
+        <span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchProductsPending</span><span class="p">());</span>
+        <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;https://exampleapi.com/products&#39;</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+        <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">error</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">throw</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">error</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchProductsSuccess</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">products</span><span class="p">);</span>
+            <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">products</span><span class="p">;</span>
+        <span class="p">})</span>
+        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">error</span> <span class="p">=&gt;</span> <span class="p">{</span>
+            <span class="nx">dispatch</span><span class="p">(</span><span class="nx">fetchProductsError</span><span class="p">(</span><span class="nx">error</span><span class="p">));</span>
+        <span class="p">})</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">fetchProducts</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong><code>Action</code></strong> trên khá là đơn giản. Đầu tiên chúng ta gửi <strong><code>pending action</code></strong>. Sau đó lấy dữ liệu từ <strong><code>API</code></strong> của chúng ta. Tiếp đo giải mã <strong><code>json</code></strong> và truyền vào một <strong><code>object</code></strong>. Cuối cùng kiểm tra lỗi. Nếu có lỗi xảy ra, chúng ta sẽ <strong><code>throw</code></strong> nó và gọi hàm <strong><code>error</code></strong>. Nếu mọi thứ hoạt động bình thường, chúng ta gọi <strong><code>success action (fetchProductsSuccess)</code></strong>. <strong><code>Reducer</code></strong> sẽ xử lý phần còn lại.
+Đây là tất cả về lấy dữ liệu từ <strong><code>server</code></strong>… Không, đùa thôi, không phải vậy đâu. Nhưng đây là cách kết thúc về việc lấy dữ liệu từ <strong><code>api</code></strong> mà hầu hết các bài viết đã làm, đúng không. Nhưng…</p>
+<h2 id="những-gì-về-ứng-dụng-của-chúng-ta">Những gì về ứng dụng của chúng ta?</h2>
+<p>Oh, bạn muốn các sản phẩm từ <strong><code>store</code></strong> của bạn thực sự hiển thị trong ứng dụng <strong><code>react</code></strong> của bạn? Okay, hãy làm điều đó.
+Tôi giả dụ như bạn biết cách để kết nối ứng dụng <strong><code>react</code></strong> của bạn tới <strong><code>redux store</code></strong> bằng <strong><code>provider</code></strong>. Có rất nhiều bài viết về chủ đề này ở ngoài kia. Sau khi bạn làm điều đó, bạn sẽ cần một vài <strong><code>component</code></strong>.</p>
+<p>Cho tôi mọi thứ bắt đầu về một <strong><code>view</code></strong>. Đối với tôi, một <strong><code>view</code></strong> là một <strong><code>component</code></strong> bao bọc mọi thứ mà một <strong><code>user</code></strong> nhận được trong một <strong><code>component</code></strong> cha. <strong><code>Component</code></strong> cha này hầu hết đều có kết nối tới <strong><code>redux store</code></strong> và chia sẻ dữ liệu với <strong><code>component</code></strong> mà nó gói gọn.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kr">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">Component</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">PropTypes</span> <span class="nx">from</span> <span class="s1">&#39;prop-types&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">connect</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;react-redux&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span> <span class="nx">bindActionCreators</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;redux&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">fetchProductsAction</span> <span class="nx">from</span> <span class="s1">&#39;fetchProducts&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="p">{</span><span class="nx">getProductsError</span><span class="p">,</span> <span class="nx">getProducts</span><span class="p">,</span> <span class="nx">getProductsPending</span><span class="p">}</span> <span class="nx">from</span> <span class="s1">&#39;reducer&#39;</span><span class="p">;</span>
+
+<span class="kr">import</span> <span class="nx">LoadingSpinner</span> <span class="nx">from</span> <span class="s1">&#39;./SomeLoadingSpinner&#39;</span><span class="p">;</span>
+<span class="kr">import</span> <span class="nx">ProductList</span> <span class="nx">from</span> <span class="s1">&#39;./ProductList&#39;</span><span class="p">;</span>
+
+<span class="kr">class</span> <span class="nx">ProductView</span> <span class="kr">extends</span> <span class="nx">Component</span> <span class="p">{</span>
+    <span class="nx">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kr">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+
+        <span class="k">this</span><span class="p">.</span><span class="nx">shouldComponentRender</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">shouldComponentRender</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentWillMount</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="p">{</span><span class="nx">fetchProducts</span><span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+        <span class="nx">fetchProducts</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="nx">shouldComponentRender</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="p">{</span><span class="nx">pending</span><span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">pending</span> <span class="o">===</span> <span class="kc">false</span><span class="p">)</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="c1">// more tests
+</span><span class="c1"></span>        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kr">const</span> <span class="p">{</span><span class="nx">products</span><span class="p">,</span> <span class="nx">error</span><span class="p">,</span> <span class="nx">pending</span><span class="p">}</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">shouldComponentRender</span><span class="p">())</span> <span class="k">return</span> <span class="o">&lt;</span><span class="nx">LoadingSpinner</span> <span class="o">/&gt;</span>
+
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;product-list-wrapper&#39;</span><span class="o">&gt;</span>
+                <span class="p">{</span><span class="nx">error</span> <span class="o">&amp;&amp;</span> <span class="o">&lt;</span><span class="nx">span</span> <span class="nx">className</span><span class="o">=</span><span class="s1">&#39;product-list-error&#39;</span><span class="o">&gt;</span><span class="p">{</span><span class="nx">error</span><span class="p">}</span><span class="o">&lt;</span><span class="err">/span&gt;}</span>
+                <span class="o">&lt;</span><span class="nx">ProductList</span> <span class="nx">products</span><span class="o">=</span><span class="p">{</span><span class="nx">products</span><span class="p">}</span> <span class="o">/&gt;</span>
+            <span class="o">&lt;</span><span class="err">/div&gt;</span>
+        <span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kr">const</span> <span class="nx">mapStateToProps</span> <span class="o">=</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">({</span>
+    <span class="nx">error</span><span class="o">:</span> <span class="nx">getProductsError</span><span class="p">(</span><span class="nx">state</span><span class="p">),</span>
+    <span class="nx">products</span><span class="o">:</span> <span class="nx">getProducts</span><span class="p">(</span><span class="nx">state</span><span class="p">),</span>
+    <span class="nx">pending</span><span class="o">:</span> <span class="nx">getProductsPending</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="kr">const</span> <span class="nx">mapDispatchToProps</span> <span class="o">=</span> <span class="nx">dispatch</span> <span class="p">=&gt;</span> <span class="nx">bindActionCreators</span><span class="p">({</span>
+    <span class="nx">fetchProducts</span><span class="o">:</span> <span class="nx">fetchProductsAction</span>
+<span class="p">},</span> <span class="nx">dispatch</span><span class="p">)</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="nx">connect</span><span class="p">(</span>
+    <span class="nx">mapStateToProps</span><span class="p">,</span>
+    <span class="nx">mapDispatchToProps</span>
+<span class="p">)(</span><span class="nx">ProductView</span> <span class="p">);</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Vì vậy, rất nhiều thứ đang diễn ra ở đây. Chúng ta viết một <strong><code>component React</code></strong> tiêu chuẩn. Sau đó, chúng ta sử dụng <strong><code>connect</code></strong> để kết nối nó tới <strong><code>redux store</code></strong>. <strong><code>Connect</code></strong> có hai tham số: Một hàm <strong><code>mapStateToProps</code></strong> để ánh xạ các phần của <strong><code>state</code></strong> vào <strong><code>props</code></strong> của bạn và một hàm <strong><code>mapDispatchToProps</code></strong> để ánh xạ các hàm vào <strong><code>props</code></strong> của bạn, khi được gọi sẽ được gửi tới <strong><code>redux</code></strong>.</p>
+<p>Cuối cùng, chúng ta đặt những thứ đó lại với nhau và nhìn xem, chúng ta có một kết nối tới <strong><code>store</code></strong>.
+Ở trong hàm <strong><code>mapStateToProps</code></strong>, chúng ta sử dụng các <strong><code>selector</code></strong> mà chúng ta đã viết trước đó.
+Tôi muốn thêm chức năng gọi là <strong><code>shouldComponentRender</code></strong> vào <strong><code>component view</code></strong> và hầu hết các <strong><code>component</code></strong>. Tôi đặt tên như vậy bởi vì nó gần giống với tên của phương thức <strong><code>lifecycle</code></strong> (<strong><code>shouldComponentUpdate</code></strong>) của <strong><code>React</code></strong>. Nó kiểm tra xem <strong><code>component</code></strong> có nên <strong><code>render</code></strong> hay không. Nếu không, nó sẽ <strong><code>render</code></strong> ra <strong><code>LoadingSpinner component</code></strong>.</p>
+<p>Tôi thấy nó rất có lợi khi làm việc như thế này, bởi vì các <strong><code>component</code></strong> luôn luôn được khởi tạo lại và tất cả các <strong><code>component</code></strong> con được gắn lại sau khi <strong><code>pending flag</code></strong>, nó điều khiển hàm <strong><code>render</code></strong> trong trường hợp này. Do đó, bạn có thể thêm <strong><code>redux state</code></strong> vào <strong><code>state</code></strong> của <strong><code>component</code></strong> trong hàm khởi tạo (<strong><code>constructor</code></strong>). (Tôi không muốn nói về những gì truyền vào <strong><code>redux</code></strong> và những gì truyền vào <strong><code>component state</code></strong>, đây là chủ đề cho một bài viết khác).</p>
+<p>Trong hầu hết các dự án của tôi, tôi thấy đây là một trong những vấn đề khó chịu nhất. Hãy nghĩ về một <strong><code>component</code></strong> mà <strong><code>render</code></strong> ra một sản phẩm. Nó được khởi tạo bởi dữ liệu và sau đó một số thành phần con như <strong><code>price calculator</code></strong>, có <strong><code>component state</code></strong>, được khởi tạo trong <strong><code>constructor</code></strong> của nó.  Khi dữ liệu mới xuất hiện, bạn cần kiểm tra xem <strong><code>calculator</code></strong> có cần phải xác định lại hay không.  Với hàm <strong><code>ShouldComponentRender</code></strong>, thật dễ dàng để làm điều đó. Mỗi khi <strong><code>pending flag</code></strong> được bật (có thể do một sản phẩm mới được chọn), mọi thứ sẽ được khởi động lại và rất tốt để sử dụng.
+Tất nhiên có một vài lý do tại sao bạn lại có các <strong><code>component</code></strong> trong phần <strong><code>view</code></strong> của bạn mà không được <strong><code>render</code></strong> lại. Nếu có trường hợp như vậy, hãy loại bỏ hàm <strong><code>shouldComponentRender</code></strong> từ phần <strong><code>view</code></strong> và làm việc với nó trong các component con.</p>
+<p>Bạn có thể sử dụng một vài hiệu ứng <strong><code>fadeout/-in</code></strong> để cải thiện trải nghiệm người dùng.
+Vâng, và đó là nó.</p>
+<p>Cảm ơn đã đọc bài blog đầu tiên của tôi. Tôi hi vọng bạn sẽ thích nó, tôi hi vọng bạn đã học được một vài thứ và nếu bạn có một vài gợi ý cho tôi để cải thiện kỹ năng <strong><code>react/redux</code></strong> của tôi hoặc chỉ muốn nói “chào”, hãy để lại lời bình cho tôi. Tôi thực sự thích điều đó.</p>
+<p>&ndash;/&ndash;</p>
+<p>Yayyy, mình tạm kết bài dịch tại đây, có thể còn nhiều thiếu sót và lủng củng trong cách dịch bài, hãy góp ý với mình qua facebook or mail nhé. Cảm ơn mọi người đã đọc bài.</p>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2020-09-04&nbsp;<a class="git-hash" href="https://github.com/dillonzq/LoveIt/commit/de5bb18b163f9340fae7ca944ed9a0f5a06f8763" target="_blank" title="commit by Tran Van Hong Quan(hongquanhak@gmail.com) de5bb18b163f9340fae7ca944ed9a0f5a06f8763: add b3">
+                                    <i class="fas fa-hashtag fa-fw"></i>de5bb18</a></span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/26_08/index.md" target="_blank">Read Markdown</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="https://hongquanhak.github.io/26_08/" data-title="Lấy dữ liệu từ một API sử dụng React/Redux" data-via="hongquanhak1" data-hashtags="react,redux,fetch api"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="https://hongquanhak.github.io/26_08/" data-hashtag="react"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="Share on Linkedin" data-sharer="linkedin" data-url="https://hongquanhak.github.io/26_08/"><i class="fab fa-linkedin fa-fw"></i></a><a href="javascript:void(0);" title="Share on Reddit" data-sharer="reddit" data-url="https://hongquanhak.github.io/26_08/"><i class="fab fa-reddit fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/react/">react</a>,&nbsp;<a href="/tags/redux/">redux</a>,&nbsp;<a href="/tags/fetch-api/">fetch api</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/24_08/" class="prev" rel="prev" title="Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?"><i class="fas fa-angle-left fa-fw"></i>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</a>
+            <a href="/03_09/" class="next" rel="next" title="CSS Cơ bản và Nâng cao - Tối giản (P1)">CSS Cơ bản và Nâng cao - Tối giản (P1)<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="fb-root" class="comment"></div>
+            <div
+                class="fb-comments"
+                data-href="https://hongquanhak.github.io/26_08/"
+                data-width="100%"
+                data-numposts="10"
+            ></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://developers.facebook.com/docs/plugins/comments/"></a>Facebook</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">
+                </div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2020</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Quan Kuyo</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v5.0&amp;appId=&amp;autoLogAppEvents=1" defer></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/smooth-scroll@16.1.3/dist/smooth-scroll.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/autocomplete.js@0.37.1/dist/autocomplete.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.4.0/sharer.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

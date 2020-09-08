@@ -1,0 +1,37 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Tất cả Bài viết - Blog about programming, english and life</title>
+        <link>https://hongquanhak.github.io/vi/posts/</link>
+        <description>Tất cả Bài viết | Blog about programming, english and life</description>
+        <generator>Hugo -- gohugo.io</generator><language>vi</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Sep 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://hongquanhak.github.io/vi/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>9 dự án bạn có thể làm để trở thành một chuyên gia Front-end trong năm 2020</title>
+    <link>https://hongquanhak.github.io/vi/07_09/</link>
+    <pubDate>Mon, 07 Sep 2020 00:00:00 &#43;0000</pubDate>
+    <author>Tác giả</author>
+    <guid>https://hongquanhak.github.io/vi/07_09/</guid>
+    <description><![CDATA[Bài viết được mình dịch lại của tác giả Simon Holdorf. Link bài viết gốc tại đây https://dev.to/simonholdorf/9-projects-you-can-do-to-become-a-frontend-master-in-2020-n2h
+ Giới thiệu Cho dù bạn là người mới tập tễnh hay là người đã có kinh nghiệm về lập trình, thì trong ngành này, học những khái niệm và ngôn ngữ/ frameworks mới là bắt buộc để bắt kịp với những thay đổi chóng mặt. Lấy ví dụ về React - mã nguồn mở được phát triển từ Facebook chỉ mới ra mắt cách đây 4 năm, nhưng nó đã dần trở thành một trong những lựa chọn cho các nhà phát triển Javascript trên toàn cầu.]]></description>
+</item><item>
+    <title>CSS Cơ bản và Nâng cao - Tối giản (P1)</title>
+    <link>https://hongquanhak.github.io/vi/03_09/</link>
+    <pubDate>Thu, 03 Sep 2020 00:00:00 &#43;0000</pubDate>
+    <author>Tác giả</author>
+    <guid>https://hongquanhak.github.io/vi/03_09/</guid>
+    <description><![CDATA[Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?]]></description>
+</item><item>
+    <title>Lấy dữ liệu từ một API sử dụng React/Redux</title>
+    <link>https://hongquanhak.github.io/vi/26_08/</link>
+    <pubDate>Wed, 26 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Tác giả</author>
+    <guid>https://hongquanhak.github.io/vi/26_08/</guid>
+    <description><![CDATA[Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.]]></description>
+</item><item>
+    <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
+    <link>https://hongquanhak.github.io/vi/24_08/</link>
+    <pubDate>Mon, 24 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Tác giả</author>
+    <guid>https://hongquanhak.github.io/vi/24_08/</guid>
+    <description><![CDATA[Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.]]></description>
+</item></channel>
+</rss>

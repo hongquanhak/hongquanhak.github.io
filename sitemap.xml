@@ -1,104 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>https://hongquanhak.github.io/posts/2020/09/9-d%E1%BB%B1-%C3%A1n-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-l%C3%A0m-%C4%91%E1%BB%83-tr%E1%BB%9F-th%C3%A0nh-m%E1%BB%99t-chuy%C3%AAn-gia-front-end-trong-n%C4%83m-2020/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/categories/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/categories/front-end/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/front-end/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/posts/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/</loc>
-    <lastmod>2020-09-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/css/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/</loc>
-    <lastmod>2020-09-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/fetch-api/</loc>
-    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</loc>
-    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/categories/react/</loc>
-    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/react/</loc>
-    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/redux/</loc>
-    <lastmod>2020-08-26T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/categories/blog/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/blog/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/tags/hugo/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</loc>
-    <lastmod>2020-08-24T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/about/</loc>
-    <lastmod>2014-04-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://hongquanhak.github.io/series/</loc>
-  </url>
-  
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	
+	<sitemap>
+	   	<loc>https://hongquanhak.github.io/en/sitemap.xml</loc>
+		
+	   	<lastmod>2020-09-07T00:00:00+00:00</lastmod>
+		
+	</sitemap>
+	
+	<sitemap>
+	   	<loc>https://hongquanhak.github.io/vi/sitemap.xml</loc>
+		
+	   	<lastmod>2020-09-07T00:00:00+00:00</lastmod>
+		
+	</sitemap>
+	
+</sitemapindex>

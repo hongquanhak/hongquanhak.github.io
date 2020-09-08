@@ -1,63 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>QUAN KUYO</title>
-    <link>https://hongquanhak.github.io/</link>
-    <description>Recent content on QUAN KUYO</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
-    <lastBuildDate>Mon, 07 Sep 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://hongquanhak.github.io/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>9 dự án bạn có thể làm để trở thành một chuyên gia Front-end trong năm 2020</title>
-      <link>https://hongquanhak.github.io/posts/2020/09/9-d%E1%BB%B1-%C3%A1n-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-l%C3%A0m-%C4%91%E1%BB%83-tr%E1%BB%9F-th%C3%A0nh-m%E1%BB%99t-chuy%C3%AAn-gia-front-end-trong-n%C4%83m-2020/</link>
-      <pubDate>Mon, 07 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/posts/2020/09/9-d%E1%BB%B1-%C3%A1n-b%E1%BA%A1n-c%C3%B3-th%E1%BB%83-l%C3%A0m-%C4%91%E1%BB%83-tr%E1%BB%9F-th%C3%A0nh-m%E1%BB%99t-chuy%C3%AAn-gia-front-end-trong-n%C4%83m-2020/</guid>
-      <description>Bài viết được mình dịch lại của tác giả Simon Holdorf. Link bài viết gốc tại đây https://dev.to/simonholdorf/9-projects-you-can-do-to-become-a-frontend-master-in-2020-n2h
- Giới thiệu Cho dù bạn là người mới tập tễnh hay là người đã có kinh nghiệm về lập trình, thì trong ngành này, học những khái niệm và ngôn ngữ/ frameworks mới là bắt buộc để bắt kịp với những thay đổi chóng mặt. Lấy ví dụ về React - mã nguồn mở được phát triển từ Facebook chỉ mới ra mắt cách đây 4 năm, nhưng nó đã dần trở thành một trong những lựa chọn cho các nhà phát triển Javascript trên toàn cầu.</description>
-    </item>
-    
-    <item>
-      <title>CSS Cơ bản và Nâng cao - Tối giản (P1)</title>
-      <link>https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/</link>
-      <pubDate>Thu, 03 Sep 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/posts/2020/09/css-c%C6%A1-b%E1%BA%A3n-v%C3%A0-n%C3%A2ng-cao-t%E1%BB%91i-gi%E1%BA%A3n-p1/</guid>
-      <description>Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
- CSS là gì?</description>
-    </item>
-    
-    <item>
-      <title>Lấy dữ liệu từ một API sử dụng React/Redux</title>
-      <link>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</link>
-      <pubDate>Wed, 26 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/posts/2020/08/l%E1%BA%A5y-d%E1%BB%AF-li%E1%BB%87u-t%E1%BB%AB-m%E1%BB%99t-api-s%E1%BB%AD-d%E1%BB%A5ng-react/redux/</guid>
-      <description>Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.</description>
-    </item>
-    
-    <item>
-      <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
-      <link>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</link>
-      <pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/posts/2020/08/t%E1%BA%A1o-blog-c%C3%A1-nh%C3%A2n-n%C4%83m-2020-b%E1%BA%B1ng-hugo-t%E1%BB%AB-a-%C4%91%E1%BA%BFn-x.-t%E1%BA%A1i-sao-kh%C3%B4ng/</guid>
-      <description>Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.</description>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>https://hongquanhak.github.io/about/</link>
-      <pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate>
-      
-      <guid>https://hongquanhak.github.io/about/</guid>
-      <description> I&amp;rsquo;m Quan. I&amp;rsquo;m 22 years old. I&amp;rsquo;m currently a senior student at Danang University of Science and Technology. My major is information of Technology. I&amp;rsquo;m consider myselft as an open-minded person and have a great passion for sports, especially soccer, badminton and table tennis.  </description>
-    </item>
-    
-  </channel>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Blog about programming, english and life</title>
+        <link>https://hongquanhak.github.io/</link>
+        <description>Blog about programming, english and life</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><lastBuildDate>Mon, 07 Sep 2020 00:00:00 &#43;0000</lastBuildDate>
+            <atom:link href="https://hongquanhak.github.io/index.xml" rel="self" type="application/rss+xml" />
+        <item>
+    <title>9 dự án bạn có thể làm để trở thành một chuyên gia Front-end trong năm 2020</title>
+    <link>https://hongquanhak.github.io/07_09/</link>
+    <pubDate>Mon, 07 Sep 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://hongquanhak.github.io/07_09/</guid>
+    <description><![CDATA[Bài viết được mình dịch lại của tác giả Simon Holdorf. Link bài viết gốc tại đây https://dev.to/simonholdorf/9-projects-you-can-do-to-become-a-frontend-master-in-2020-n2h
+ Giới thiệu Cho dù bạn là người mới tập tễnh hay là người đã có kinh nghiệm về lập trình, thì trong ngành này, học những khái niệm và ngôn ngữ/ frameworks mới là bắt buộc để bắt kịp với những thay đổi chóng mặt. Lấy ví dụ về React - mã nguồn mở được phát triển từ Facebook chỉ mới ra mắt cách đây 4 năm, nhưng nó đã dần trở thành một trong những lựa chọn cho các nhà phát triển Javascript trên toàn cầu.]]></description>
+</item><item>
+    <title>CSS Cơ bản và Nâng cao - Tối giản (P1)</title>
+    <link>https://hongquanhak.github.io/03_09/</link>
+    <pubDate>Thu, 03 Sep 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://hongquanhak.github.io/03_09/</guid>
+    <description><![CDATA[Như tiêu đề mình đã đề cập, chủ đề này mình sẽ chia sẻ về CSS cơ bản và nâng cao theo những gì mình đã học và đang học một cách tối giản nhất, có thể có nhiều thiếu sót, để tìm hiểu sâu hơn mọi người có thể tìm kiếm theo từ khóa ở các mục lớn trong bài. Cảm ơn mọi người đã theo dõi
+ CSS là gì?]]></description>
+</item><item>
+    <title>Lấy dữ liệu từ một API sử dụng React/Redux</title>
+    <link>https://hongquanhak.github.io/26_08/</link>
+    <pubDate>Wed, 26 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://hongquanhak.github.io/26_08/</guid>
+    <description><![CDATA[Thời gian gần đây mình có đang tìm hiểu về React/Redux và cũng có tìm hiểu một số bài viết trên web. Vừa để cải thiện tiếng anh, vừa để nâng cao thêm kiến thức, mình có dịch một bài về “Lấy dữ liệu từ một API sử dụng React/Redux”. Hi vọng một phần nào đó sẽ giúp ích cho những ai đã và đang tìm hiểu về React/Redux. Bài dịch có thể có nhiều thiếu sót, mong mọi người góp ý để mình hoàn thiện hơn.]]></description>
+</item><item>
+    <title>Tạo blog cá nhân năm 2020 bằng Hugo từ A đến X. Tại sao không?</title>
+    <link>https://hongquanhak.github.io/24_08/</link>
+    <pubDate>Mon, 24 Aug 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>https://hongquanhak.github.io/24_08/</guid>
+    <description><![CDATA[Một ngày đẹp trời, mình bắt đầu nổi hứng muốn tạo một trang blog cho riêng mình để lưu lại những cái mình đã trải nghiệm và đang tìm hiểu. Tập trung chính vào công nghệ và tiếng anh. Mình lượn lờ trên mạng và xem cách tạo trang web cá nhân cũng như dùng cái gì để giải quyết vấn đề đó, nào là Wordpress, Hexo, Jekyll, Hugo,… Và sau một vài chục phút tìm hiểu thì mình quyết định chọn Hugo để đồng hành cùng mình.]]></description>
+</item></channel>
 </rss>
